@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "categories/index"
   get "products/index"
   get "products/show"
@@ -19,6 +20,5 @@ Rails.application.routes.draw do
   resources :products, only: %i[index show]
   resources :categories, only: %i[index]
   root "products#index"
-
 
 end

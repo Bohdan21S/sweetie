@@ -3,7 +3,9 @@
 <ul>
   <% @products.each do |product| %>
     <li>
-      <%= image_tag product.image if product.image.attached? %>
+      <% if product.image.attached? %>
+        <%= image_tag product.image, style: "max-width: 150px;" %>
+      <% end %>
       <%= link_to product.name, product_path(product) %>
       <p>Price: $<%= product.price %></p>
       <p>Category: <%= product.category.name %></p>

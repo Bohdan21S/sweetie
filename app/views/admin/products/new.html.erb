@@ -1,0 +1,37 @@
+<h1>Додати новий товар</h1>
+
+<%= form_with(model: @product, url: admin_products_path) do |f| %>
+  <div>
+    <%= f.label :name, 'Назва товару' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :price, 'Ціна товару' %>
+    <%= f.number_field :price, step: 0.01 %>
+  </div>
+
+  <div>
+    <%= f.label :weight, 'Вага товару (грам)' %>
+    <%= f.number_field :weight %>
+  </div>
+
+  <div>
+    <%= f.label :category_id, 'Категорія' %>
+    <%= f.collection_select :category_id, @categories, :id, :name, prompt: 'Оберіть категорію' %>
+  </div>
+
+  <div>
+    <%= f.label :description, 'Опис товару' %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.label :image, 'Зображення товару' %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div>
+    <%= f.submit 'Додати товар' %>
+  </div>
+<% end %>

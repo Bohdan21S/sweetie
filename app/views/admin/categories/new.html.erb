@@ -1,0 +1,12 @@
+<h1>Додати нову категорію</h1>
+
+<%= form_with(model: @category, url: admin_categories_path) do |f| %>
+  <div>
+    <%= f.label :name, 'Назва категорії' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.submit 'Додати категорію' %>
+  </div>
+<% end %>

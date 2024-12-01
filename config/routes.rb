@@ -24,5 +24,15 @@ Rails.application.routes.draw do
   # devise_for :users do
   #   get "/users/sign_out" => "devise/sessions#destroy"
   # end
+  #
+  namespace :admin do
+    get "categories/new"
+    get "categories/create"
+    get "products/new"
+    get "products/create"
+    resources :products, only: %i[new create]
+    resources :categories, only: %i[new create]
+  end
+
 
 end

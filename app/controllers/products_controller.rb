@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+
+  # before_action :authenticate_user!, except: %i[index show]
+
   def index
     @products = Product.all.includes(:category)
   end

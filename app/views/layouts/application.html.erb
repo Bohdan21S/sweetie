@@ -19,11 +19,27 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
   </head>
 
   <body>
+    <p>HELLO I AM HERE IN APPLICATION HTML ERB</p>
     <%= yield %>
+    <p>HELLO I AM HERE IN APPLICATION HTML ERB</p>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <p>HELLO I AM HERE IN APPLICATION HTML ERB</p>
+    <% if user_signed_in? %>
+    <p>Привіт, <%= current_user.email %>!</p>
+    <%= link_to 'Вийти', destroy_user_session_path, method: :delete %>
+    <!--    must be method: :delete for the button to sent delete request
+    default for button is post for link is get-->
+    <%= button_to 'Вийти', destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'Увійти', new_user_session_path %> |
+    <%= link_to 'Реєстрація', new_user_registration_path %>
+  <% end %>
+
   </body>
 </html>

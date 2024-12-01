@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   get "categories/index"
   get "products/index"
   get "products/show"
@@ -16,9 +15,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-
   resources :products, only: %i[index show]
   resources :categories, only: %i[index]
-  root "products#index"
+
+  devise_for :users
+  root "products#index" # Вказуємо головну сторінку
+
+  # devise_for :users do
+  #   get "/users/sign_out" => "devise/sessions#destroy"
+  # end
 
 end

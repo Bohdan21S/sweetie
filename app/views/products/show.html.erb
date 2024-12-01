@@ -22,6 +22,56 @@
   <%= f.submit 'Додати до корзини' %>
 <% end %>
 
+<h2>Залишити відгук</h2>
+
+<% if user_signed_in? %>
+  <%= form_with model: [@product, Review.new], local: true do |f| %>
+    <div>
+      <%= f.label :rating, 'Оцінка (1-10)' %>
+      <%= f.number_field :rating, min: 1, max: 10 %>
+    </div>
+
+    <div>
+      <%= f.label :content, 'Ваш відгук' %>
+      <%= f.text_area :content %>
+    </div>
+
+    <div>
+      <%= f.label :images, 'Додайте фотографії (за бажанням)' %>
+      <%= f.file_field :images, multiple: true %>
+    </div>
+
+    <div>
+      <%= f.submit 'Залишити відгук' %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Ви повинні <%= link_to 'увійти', new_user_session_path %>, щоб залишити відгук.</p>
+<% end %>
+
+<h2>Відгуки</h2>
+
+<% if @product.reviews.any? %>
+  <% @product.reviews.each do |review| %>
+    <div>
+      <p><strong><%= review.user.email %>:</strong></p>
+      <p>Оцінка: <%= review.rating %>/10</p>
+      <p><%= review.content %></p>
+
+      <% if review.images.attached? %>
+        <p>Фотографії:</p>
+        <% review.images.each do |image| %>
+          <%= image_tag image, style: 'max-width: 150px; margin-right: 10px;' %>
+        <% end %>
+      <% end %>
+    </div>
+    <hr>
+  <% end %>
+<% else %>
+  <p>Немає відгуків про цей товар.</p>
+<% end %>
+
+
 <%# if user_signed_in? %>
   <%#= form_with url: cart_items_path, method: :post do |f| %>
     <%#= hidden_field_tag :product_id, @product.id %>

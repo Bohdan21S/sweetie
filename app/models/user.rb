@@ -25,5 +25,6 @@ class User < ApplicationRecord
     create_cart
   end
 
+  has_many :reviews, dependent: :destroy
 
 end

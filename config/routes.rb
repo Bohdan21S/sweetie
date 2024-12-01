@@ -38,4 +38,10 @@ Rails.application.routes.draw do
   resource :cart, only: %i[show]
 
 
+  resources :products, only: %i[show] do
+    resources :reviews, only: %i[create]
+  end
+
+
+
 end

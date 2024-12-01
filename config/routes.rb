@@ -34,5 +34,8 @@ Rails.application.routes.draw do
     resources :categories, only: %i[new create]
   end
 
+  resources :cart_items, only: %i[create destroy update]
+  resource :cart, only: %i[show]
+
 
 end

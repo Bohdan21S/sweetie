@@ -3,3 +3,7 @@
 // import "controllers"
 // import "@rails/ujs" // додає підтримку method: :delete
 // Rails.start()
+
+// import "./controllers/cart_quantity_controller";
+
+

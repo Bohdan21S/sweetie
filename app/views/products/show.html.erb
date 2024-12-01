@@ -11,3 +11,24 @@
 <p>Category: <%= @product.category.name %></p>
 
 <%= link_to 'Back to Products', products_path %>
+
+<%= form_with url: user_signed_in? ? cart_items_path : new_user_session_path, method: :post do |f| %>
+  <% if user_signed_in? %>
+    <%= hidden_field_tag :product_id, @product.id %>
+    <%= label_tag :quantity, 'Кількість' %>
+    <%= hidden_field_tag :quantity, 1 %>
+    <%= number_field_tag :quantity, 1, min: 1 %>
+  <% end %>
+  <%= f.submit 'Додати до корзини' %>
+<% end %>
+
+<%# if user_signed_in? %>
+  <%#= form_with url: cart_items_path, method: :post do |f| %>
+    <%#= hidden_field_tag :product_id, @product.id %>
+    <%#= label_tag :quantity, 'Кількість' %>
+    <%#= number_field_tag :quantity, 1, min: 1 %>
+    <%#= f.submit 'Додати до корзини' %>
+  <%# end %>
+<%# else %>
+<!--  <p>Увійдіть, щоб додавати товари до корзини.</p>-->
+<%# end %>

@@ -16,4 +16,14 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :user
   end
+
+  has_one :cart, dependent: :destroy
+
+  after_create :initialize_cart
+
+  def initialize_cart
+    create_cart
+  end
+
+
 end

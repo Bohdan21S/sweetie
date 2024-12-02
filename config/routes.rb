@@ -48,5 +48,7 @@ Rails.application.routes.draw do
   end
 
 
+  resources :feedbacks, only: [:new, :create]
+
 
 end

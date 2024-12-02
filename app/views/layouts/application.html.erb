@@ -24,7 +24,25 @@
   </head>
 
   <body>
-    <p>HELLO I AM HERE IN APPLICATION HTML ERB</p>
+
+  <% if user_signed_in? %>
+    <nav>
+      <%= link_to 'Головна', root_path %>
+      <%= link_to 'Зворотній зв’язок', new_feedback_path %>
+      <%= link_to 'Вийти', destroy_user_session_path, method: :delete %>
+    </nav>
+  <% else %>
+    <nav>
+      <%= link_to 'Головна', root_path %>
+      <%= link_to 'Увійти', new_user_session_path %>
+      <%= link_to 'Реєстрація', new_user_registration_path %>
+    </nav>
+  <% end %>
+
+
+
+
+  <p>HELLO I AM HERE IN APPLICATION HTML ERB</p>
     <%= yield %>
     <p>HELLO I AM HERE IN APPLICATION HTML ERB</p>
     <p class="notice"><%= notice %></p>

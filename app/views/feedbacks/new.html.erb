@@ -1,0 +1,22 @@
+<h1>Зворотній зв’язок</h1>
+
+<%= form_with model: @feedback, local: true do |f| %>
+  <div>
+    <%= f.label :subject, 'Тема' %>
+    <%= f.text_field :subject %>
+  </div>
+
+  <div>
+    <%= f.label :message, 'Повідомлення' %>
+    <%= f.text_area :message %>
+  </div>
+
+  <div>
+    <%= f.label :images, 'Додати фото (за бажанням)' %>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+
+  <div>
+    <%= f.submit 'Відправити' %>
+  </div>
+<% end %>

@@ -49,9 +49,8 @@
   <p>Ви повинні <%= link_to 'увійти', new_user_session_path %>, щоб залишити відгук.</p>
 <% end %>
 
-<h2>Відгуки</h2>
-
-<% if @product.reviews.any? %>
+<% if user_signed_in? && current_user.admin? %>
+  <h3>Відгуки</h3>
   <% @product.reviews.each do |review| %>
     <div>
       <p><strong><%= review.user.email %>:</strong></p>
@@ -64,12 +63,44 @@
           <%= image_tag image, style: 'max-width: 150px; margin-right: 10px;' %>
         <% end %>
       <% end %>
+
+      <% if review.admin_response.present? %>
+        <p><strong>Відповідь адміністратора:</strong> <%= review.admin_response %></p>
+      <% else %>
+        <%= form_with url: admin_review_path(review), method: :patch, local: true do |f| %>
+          <div>
+            <%= f.label :admin_response, 'Ваша відповідь' %>
+            <%= f.text_area :admin_response %>
+          </div>
+          <%= f.submit 'Відповісти' %>
+        <% end %>
+      <% end %>
     </div>
     <hr>
   <% end %>
 <% else %>
-  <p>Немає відгуків про цей товар.</p>
+  <h3>Відгуки</h3>
+  <% @product.reviews.each do |review| %>
+    <div>
+      <p><strong><%= review.user.email %>:</strong></p>
+      <p>Оцінка: <%= review.rating %>/10</p>
+      <p><%= review.content %></p>
+
+      <% if review.images.attached? %>
+        <p>Фотографії:</p>
+        <% review.images.each do |image| %>
+          <%= image_tag image, style: 'max-width: 150px; margin-right: 10px;' %>
+        <% end %>
+      <% end %>
+
+      <% if review.admin_response.present? %>
+        <p><strong>Відповідь адміністратора:</strong> <%= review.admin_response %></p>
+      <% end %>
+    </div>
+    <hr>
+  <% end %>
 <% end %>
+
 
 
 <%# if user_signed_in? %>

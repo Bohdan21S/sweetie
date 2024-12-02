@@ -43,5 +43,10 @@ Rails.application.routes.draw do
   end
 
 
+  namespace :admin do
+    resources :reviews, only: [:update]
+  end
+
+
 
 end

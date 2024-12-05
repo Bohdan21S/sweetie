@@ -51,4 +51,13 @@ Rails.application.routes.draw do
   resources :feedbacks, only: [:new, :create]
 
 
+  resources :orders, only: [:new, :create, :show]
+
+
+  get "/nova_poshta/branches", to: "nova_poshta#branches"
+  get "/nova_poshta/cities", to: "nova_poshta#cities"
+
+
+
+
 end

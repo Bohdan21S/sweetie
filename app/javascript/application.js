@@ -1,9 +1,5 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-// import "@hotwired/turbo-rails"
-// import "controllers"
-// import "@rails/ujs" // додає підтримку method: :delete
-// Rails.start()
-
-// import "./controllers/cart_quantity_controller";
-
-
+alert("Hello importmap from js/application");
+alert("Hello againbbbbnn importmap from js/application");
+import "child";
+import "order_form";

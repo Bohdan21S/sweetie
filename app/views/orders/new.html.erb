@@ -1,0 +1,54 @@
+<h1>Оформлення замовлення</h1>
+
+<%= link_to 'Редагувати замовлення', cart_path, class: 'btn btn-secondary' %>
+
+<h2>Ваші товари:</h2>
+<ul>
+  <% @cart_items.each do |item| %>
+    <li>
+      <%= item.product.name %> - <%= item.quantity %> шт. за <%= number_to_currency(item.product.price) %>
+    </li>
+  <% end %>
+</ul>
+<p>Загальна сума: <strong><%= number_to_currency(@total_price) %></strong></p>
+
+<h2>Вибір доставки</h2>
+<%= form_with model: @order, local: true, id: "order-form" do |f| %>
+  <div>
+    <%= f.label :delivery_method, 'Спосіб доставки' %>
+    <%= f.select :delivery_method, ['Самовивіз', 'Нова Пошта'], prompt: "Оберіть спосіб доставки", dom_id: "delivery-method" %>
+  </div>
+
+
+  <!-- Самовивіз -->
+  <div id="pickup-options" style="display: none;">
+    <!--    <div id="pickup-options">-->
+    <%= f.label :pickup_location, 'Адреса магазину для самовивозу' %>
+    <%= f.select :pickup_location, ['Київ, вул. Хрещатик, 1', 'Львів, пл. Ринок, 10', 'Одеса, вул. Дерибасівська, 5'], prompt: 'Оберіть адресу' %>
+  </div>
+
+  <!-- Нова Пошта -->
+  <!--  <div id="nova-poshta-options" style="display: none;">-->
+  <div id="nova-poshta-options">
+    <%= f.label :city, 'Місто доставки' %>
+    <%= text_field_tag :city, nil, placeholder: 'Введіть ваше місто', id: 'city-input', autocomplete: 'off' %>
+    <ul id="city-suggestions" style="border: 1px solid #ccc; background: white; position: absolute; z-index: 1000; display: none;"></ul>
+
+    <div id="branches-container" style="margin-top: 10px;">
+      <%= f.label :nova_poshta_branch, 'Відділення Нової Пошти' %>
+      <%= f.select :nova_poshta_branch, [], prompt: 'Оберіть відділення', id: 'nova-poshta-branches' %>
+    </div>
+  </div>
+
+  <!-- Спосіб оплати -->
+  <div>
+    <%= f.label :payment_method, 'Спосіб оплати' %>
+    <%= f.select :payment_method, ['Готівка', 'Карта у відділенні', 'Карта на сайті'], prompt: 'Оберіть спосіб оплати' %>
+  </div>
+
+  <div>
+    <%= f.submit 'Оформити замовлення', class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
+

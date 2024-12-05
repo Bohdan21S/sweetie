@@ -18,9 +18,8 @@
         <td><%= number_to_currency(item.product.price) %></td>
         <td><%= item.quantity %></td>
         <td><%= number_to_currency(item.product.price * item.quantity) %></td>
-<!--        TODO change quantity-->
         <td>
-          <%= button_to 'Видалити', cart_item_path(item), method: :delete, data: { confirm: 'Ви впевнені?' } %>
+          <%= link_to 'Видалити', cart_item_path(item), method: :delete, data: { confirm: 'Ви впевнені?' } %>
         </td>
       </tr>
     <% end %>
@@ -28,9 +27,17 @@
   </table>
 
   <p><strong>Загальна сума: <%= number_to_currency(@cart_items.sum { |item| item.product.price * item.quantity }) %></strong></p>
+
+  <% if user_signed_in? %>
+    <%= link_to 'Оформити замовлення', new_order_path, class: 'btn btn-primary' %>
+  <% else %>
+    <p>Увійдіть, щоб оформити замовлення.</p>
+    <%= link_to 'Увійти', new_user_session_path, class: 'btn btn-secondary' %>
+  <% end %>
 <% else %>
   <p>Ваша корзина порожня.</p>
 <% end %>
+
 
 
 <%# @cart_items.each do |item| %>

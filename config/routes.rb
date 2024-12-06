@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   # end
   #
   namespace :admin do
+    get "orders/index"
+    get "orders/update"
+    get "orders/destroy"
     get "categories/new"
     get "categories/create"
     get "products/new"
@@ -56,6 +59,11 @@ Rails.application.routes.draw do
 
   get "/nova_poshta/branches", to: "nova_poshta#branches"
   get "/nova_poshta/cities", to: "nova_poshta#cities"
+
+
+  namespace :admin do
+    resources :orders, only: [:index, :update, :destroy, :show]
+  end
 
 
 

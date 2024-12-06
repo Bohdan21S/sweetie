@@ -1,0 +1,51 @@
+<h1>Список замовлень</h1>
+
+<% if @orders.any? %>
+  <table>
+    <thead>
+    <tr>
+      <th>Номер</th>
+      <th>Клієнт</th>
+      <th>Дата</th>
+      <th>Статус</th>
+      <th>Дії</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.user.email %></td>
+        <td><%= order.created_at.strftime("%d.%m.%Y %H:%M") %></td>
+        <td><%= order.status.humanize %></td>
+        <td>
+          <%= link_to 'Деталі', admin_order_path(order), class: 'btn btn-info' %>
+
+          <!-- Позначити як надіслане -->
+          <% if order.status == 'pending' %>
+            <%= button_to 'Позначити як надіслане', admin_order_path(order, status: 'sent'), method: :patch, class: 'btn btn-primary', data: { confirm: 'Ви впевнені?' } %>
+          <% end %>
+
+          <!-- Позначити як виконане -->
+          <% if order.status == 'sent' %>
+            <%= button_to 'Позначити як виконане', admin_order_path(order, status: 'completed'), method: :patch, class: 'btn btn-success', data: { confirm: 'Ви впевнені?' } %>
+          <% end %>
+
+          <!-- Скасувати замовлення -->
+          <% if order.status == 'pending' || order.status == 'sent' %>
+            <%= button_to 'Скасувати замовлення', admin_order_path(order), method: :delete, class: 'btn btn-danger', data: { confirm: 'Ви впевнені?' } %>
+          <% end %>
+
+          <% if order.status == 'completed' %>
+            <%= button_to 'Приховати замовлення', admin_order_path(order), method: :delete, class: 'btn btn-danger', data: { confirm: 'Ви впевнені?' } %>
+          <% end %>
+
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+  <p>Чекаємо на замовлення від клієнтів.</p>
+<% end %>

@@ -30,6 +30,9 @@
     <nav>
       <%= link_to 'Головна', root_path %>
       <%= link_to 'Зворотній зв’язок', new_feedback_path %>
+      <% if current_user.admin? %>
+        <%= link_to 'Замовлення', admin_orders_path %>
+      <% end %>
       <%= link_to 'Вийти', destroy_user_session_path, method: :delete %>
     </nav>
   <% else %>

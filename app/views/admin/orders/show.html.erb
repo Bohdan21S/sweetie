@@ -1,0 +1,34 @@
+<h1>Деталі замовлення №<%= @order.id %></h1>
+
+<p><strong>Клієнт:</strong> <%= @order.user.email %></p>
+<p><strong>Дата замовлення:</strong> <%= @order.created_at.strftime("%d.%m.%Y %H:%M") %></p>
+<p><strong>Статус:</strong> <%= @order.status.humanize %></p>
+<p><strong>Спосіб доставки:</strong> <%= @order.delivery_method %></p>
+<p><strong>Місце доставки:</strong> <%= @order.delivery_location %></p>
+<p><strong>Спосіб оплати:</strong> <%= @order.payment_method %></p>
+
+<h2>Товари:</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Назва</th>
+    <th>Ціна</th>
+    <th>Кількість</th>
+    <th>Разом</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @order_items.each do |item| %>
+    <tr>
+      <td><%= item.product.name %></td>
+      <td><%= number_to_currency(item.price) %></td>
+      <td><%= item.quantity %></td>
+      <td><%= number_to_currency(item.price * item.quantity) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<p><strong>Загальна сума:</strong> <%= number_to_currency(@order.total_price) %></p>
+
+<%= link_to 'Назад до списку замовлень', admin_orders_path, class: 'btn btn-secondary' %>

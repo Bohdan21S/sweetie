@@ -5,7 +5,7 @@ class Order < ApplicationRecord
 
   validates :delivery_method, presence: true
   validates :payment_method, presence: true
-  validates :status, presence: true, inclusion: { in: %w[pending confirmed completed canceled] }
+  validates :status, presence: true, inclusion: { in: %w[pending sent completed canceled] }
 
   before_validation :set_default_status, on: :create
 

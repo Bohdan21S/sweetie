@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const citySuggestions = document.getElementById("city-suggestions");
 
+
     // Перевірка на існування ключових елементів
     if (!deliveryMethod || !pickupOptions || !novaPoshtaOptions) {
         console.error("Не всі необхідні елементи знайдено. Перевірте HTML.");
@@ -90,44 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
     deliveryMethod.addEventListener("change", toggleDeliveryOptions);
 
     // Завантаження відділень Нової Пошти при введенні міста
-
-    // if (cityInput && branchesSelect) {
-    //     cityInput.addEventListener("blur", async () => {
-    //         const city = cityInput.value.trim();
-    //         if (city) {
-    //             console.log(`Завантаження відділень для міста: ${city}`);
-    //             try {
-    //                 // Відправляємо запит до вашого контролера
-    //                 const response = await fetch(`/nova_poshta/branches?city=${city}`);
-    //                 if (!response.ok) {
-    //                     throw new Error(`HTTP помилка! Статус: ${response.status}`);
-    //                 }
-    //
-    //                 const branches = await response.json();
-    //                 console.log("Відділення отримано:", branches);
-    //
-    //                 // Очищуємо старі опції
-    //                 branchesSelect.innerHTML = '<option value="">Оберіть відділення</option>';
-    //
-    //                 // Додаємо нові опції
-    //                 branches.forEach(branch => {
-    //                     const option = document.createElement("option");
-    //                     option.value = branch;
-    //                     option.textContent = branch;
-    //                     branchesSelect.appendChild(option);
-    //                 });
-    //             } catch (error) {
-    //                 console.error("Помилка при завантаженні відділень:", error);
-    //             }
-    //         } else {
-    //             console.log("Місто не введено. Відділення не завантажуються.");
-    //             branchesSelect.innerHTML = '<option value="">Оберіть відділення</option>';
-    //         }
-    //     });
-    // } else {
-    //     console.error("Елементи для вибору міста або відділень не знайдено. Перевірте HTML.");
-    // }
-
     let lastSelectedCity = ''; // Змінна для збереження останнього вибраного міста
 
     // для обробки автозаповнення
@@ -164,22 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
 
-
-
-
-    // для обробки ручного введення
-
-    // cityInput.addEventListener("blur", () => {
-    //     console.log("    cityInput.addEventListener(\"blur\", () => {");
-    //     const city = cityInput.value.trim();
-    //     if (city) {
-    //         loadBranches(city); // Викликаємо нову функцію
-    //     } else {
-    //         console.log("Місто не введено. Відділення не завантажуються.");
-    //         branchesSelect.innerHTML = '<option value="">Оберіть відділення</option>';
-    //     }
-    // });
-
     // ставимо затримку виконання методу для кейсу вибору автозаповнення міста,
     // щоб спочатку виконався метод кліку автозаповлення та переприсвоїлося значення lastSelectedCity
     cityInput.addEventListener("blur", () => {
@@ -194,12 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }, 124);
     });
-
-
-
-
-
-
 
 
     // Пошук міст
@@ -234,6 +175,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+
+    // Обробка оплати картою на сайті
+    const paymentMethod = document.getElementById("order_payment_method");
+    const cardDetails = document.getElementById("card-details");
+
+    if (!paymentMethod || !cardDetails) {
+        console.error("Елементи для управління полем карти не знайдено.");
+        return;
+    }
+
+    const toggleCardDetails = () => {
+        if (paymentMethod.value === "Карта на сайті") {
+            cardDetails.style.display = "block";
+        } else {
+            cardDetails.style.display = "none";
+        }
+    };
+
+    // Виклик функції при завантаженні сторінки
+    toggleCardDetails();
+
+    // Відстеження змін у способі оплати
+    paymentMethod.addEventListener("change", toggleCardDetails);
 
 
     // Приховати підказки, якщо користувач натискає поза списком

@@ -40,11 +40,30 @@
     </div>
   </div>
 
+
   <!-- Спосіб оплати -->
   <div>
     <%= f.label :payment_method, 'Спосіб оплати' %>
-    <%= f.select :payment_method, ['Готівка', 'Карта у відділенні', 'Карта на сайті'], prompt: 'Оберіть спосіб оплати' %>
+    <%= f.select :payment_method, ['Готівка', 'Карта у відділенні', 'Карта на сайті'], prompt: 'Оберіть спосіб оплати', id: "payment-method" %>
   </div>
+
+  <!-- Поле для даних карти -->
+  <div id="card-details" style="display: none; margin-top: 20px;">
+    <h3>Введіть дані вашої карти:</h3>
+    <div>
+      <%= label_tag :card_number, 'Номер карти' %>
+      <%= text_field_tag :card_number, nil, placeholder: '1234 5678 9012 3456', class: 'form-control', maxlength: 19 %>
+    </div>
+    <div>
+      <%= label_tag :card_expiry, 'Термін дії (MM/YY)' %>
+      <%= text_field_tag :card_expiry, nil, placeholder: 'MM/YY', class: 'form-control', maxlength: 5 %>
+    </div>
+    <div>
+      <%= label_tag :card_cvv, 'CVV' %>
+      <%= text_field_tag :card_cvv, nil, placeholder: '123', class: 'form-control', maxlength: 3 %>
+    </div>
+  </div>
+
 
   <div>
     <%= f.submit 'Оформити замовлення', class: 'btn btn-primary' %>

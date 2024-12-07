@@ -1,9 +1,13 @@
 class ProductsController < ApplicationController
 
-  # before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @products = Product.all.includes(:category)
+    if params[:search].present?
+      @products = Product.where("name LIKE ?", "%#{params[:search]}%").includes(:category)
+    else
+      @products = Product.all.includes(:category)
+    end
   end
 
   def show

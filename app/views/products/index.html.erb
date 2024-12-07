@@ -1,27 +1,26 @@
 <h1>Products</h1>
 
-<ul>
-  <% @products.each do |product| %>
-    <li>
-      <% if product.image.attached? %>
-        <%= image_tag product.image, style: "max-width: 150px;" %>
-      <% end %>
-      <%= link_to product.name, product_path(product) %>
-      <p>Price: $<%= product.price %></p>
-      <p>Category: <%= product.category.name %></p>
-    </li>
+<% if @products.any? %>
+  <ul>
+    <% @products.each do |product| %>
+      <li>
+        <% if product.image.attached? %>
+          <%= image_tag product.image, style: "max-width: 150px;" %>
+        <% end %>
+        <%= link_to product.name, product_path(product) %>
+        <p>Price: $<%= product.price %></p>
+        <p>Category: <%= product.category.name %></p>
+      </li>
 
-    <%= form_with url: user_signed_in? ? cart_items_path : new_user_session_path, method: :post do |f| %>
-      <% if user_signed_in? %>
-        <%= hidden_field_tag :product_id, product.id %>
-        <%= hidden_field_tag :quantity, 1 %>
+      <%= form_with url: user_signed_in? ? cart_items_path : new_user_session_path, method: :post do |f| %>
+        <% if user_signed_in? %>
+          <%= hidden_field_tag :product_id, product.id %>
+          <%= hidden_field_tag :quantity, 1 %>
+        <% end %>
+        <%= f.submit 'Додати до корзини' %>
       <% end %>
-      <%= f.submit 'Додати до корзини' %>
     <% end %>
-
-
-
+  </ul>
+<% else %>
+  <p>Товари не знайдені.</p>
 <% end %>
-</ul>
-
-

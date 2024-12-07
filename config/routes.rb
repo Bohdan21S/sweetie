@@ -44,7 +44,14 @@ Rails.application.routes.draw do
   resources :products, only: %i[show] do
     resources :reviews, only: %i[create edit update]
   end
-  
+
+  # resources :products, only: %i[index show] do
+  #   collection do
+  #     get :search
+  #   end
+  # end
+
+
   namespace :admin do
     resources :reviews, only: [:update]
   end

@@ -45,7 +45,6 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[create]
   end
 
-
   namespace :admin do
     resources :reviews, only: [:update]
   end

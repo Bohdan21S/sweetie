@@ -43,7 +43,7 @@
 // });
 
 
-alert("JS FOR ORDER FORM WORKING");
+// alert("JS FOR ORDER FORM WORKING");
 
 document.addEventListener("DOMContentLoaded", () => {
     const deliveryMethod = document.getElementById("order_delivery_method");

@@ -1,4 +1,21 @@
-<h1>Products</h1>
+<h1>Ось наші товари</h1>
+
+<!-- Панель для вибору категорії -->
+<div class="category-panel" style="margin-bottom: 20px;">
+  <%= link_to 'Всі товари', products_path, class: 'btn btn-info' %>
+  <% Category.all.each do |category| %>
+    <%= link_to category.name, products_path(category: category.id), class: 'btn btn-secondary' %>
+  <% end %>
+</div>
+
+<!-- Поле для пошуку -->
+<div style="text-align: center; margin-top: 20px;">
+  <%= form_with url: products_path, method: :get, local: true, id: 'search-form' do |f| %>
+    <%= f.label :search, "Пошук товарів" %>
+    <%= f.text_field :search, placeholder: 'Шукайте товар за назвою...', class: 'form-control' %>
+    <%= f.submit 'Шукати', class: 'btn btn-primary' %>
+  <% end %>
+</div>
 
 <% if @products.any? %>
   <ul>

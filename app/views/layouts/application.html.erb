@@ -43,17 +43,6 @@
     </nav>
   <% end %>
 
-  <!-- Поле для пошуку -->
-  <div style="text-align: center; margin-top: 20px;">
-    <%= form_with url: products_path, method: :get, local: true, id: 'search-form' do |f| %>
-      <%= f.label :search, "Пошук товарів" %>
-      <%= f.text_field :search, placeholder: 'Шукайте товар за назвою...', class: 'form-control' %>
-      <%= f.submit 'Шукати', class: 'btn btn-primary' %>
-    <% end %>
-  </div>
-
-
-
 
   <p>HELLO I AM HERE IN APPLICATION HTML ERB</p>
     <%= yield %>

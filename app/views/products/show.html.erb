@@ -93,6 +93,10 @@
         <% end %>
       <% end %>
 
+      <% if review.user == current_user %>
+        <%= link_to 'Редагувати', edit_product_review_path(@product, review), class: 'btn btn-warning' %>
+      <% end %>
+
       <% if review.admin_response.present? %>
         <p><strong>Відповідь адміністратора:</strong> <%= review.admin_response %></p>
       <% end %>
@@ -100,16 +104,3 @@
     <hr>
   <% end %>
 <% end %>
-
-
-
-<%# if user_signed_in? %>
-  <%#= form_with url: cart_items_path, method: :post do |f| %>
-    <%#= hidden_field_tag :product_id, @product.id %>
-    <%#= label_tag :quantity, 'Кількість' %>
-    <%#= number_field_tag :quantity, 1, min: 1 %>
-    <%#= f.submit 'Додати до корзини' %>
-  <%# end %>
-<%# else %>
-<!--  <p>Увійдіть, щоб додавати товари до корзини.</p>-->
-<%# end %>

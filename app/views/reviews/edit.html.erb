@@ -1,0 +1,30 @@
+<h1>Редагувати відгук</h1>
+
+<%= form_with model: [@product, @review], local: true do |f| %>
+  <div>
+    <%= f.label :rating, 'Оцінка (1-10)' %>
+    <%= f.number_field :rating, min: 1, max: 10, value: @review.rating %>
+  </div>
+
+  <div>
+    <%= f.label :content, 'Ваш відгук' %>
+    <%= f.text_area :content, value: @review.content %>
+  </div>
+
+  <div>
+    <%= f.label :images, 'Оновити фотографії (за бажанням)' %>
+    <%= f.file_field :images, multiple: true %>
+    <% if @review.images.attached? %>
+      <p>Поточні фото:</p>
+      <% @review.images.each do |image| %>
+        <%= image_tag image, style: 'max-width: 150px; margin-right: 10px;' %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.submit 'Оновити відгук' %>
+  </div>
+<% end %>
+
+<%= link_to 'Назад до товару', @product, class: 'btn btn-secondary' %>

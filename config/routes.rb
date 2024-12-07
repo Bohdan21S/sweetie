@@ -42,9 +42,9 @@ Rails.application.routes.draw do
 
 
   resources :products, only: %i[show] do
-    resources :reviews, only: %i[create]
+    resources :reviews, only: %i[create edit update]
   end
-
+  
   namespace :admin do
     resources :reviews, only: [:update]
   end

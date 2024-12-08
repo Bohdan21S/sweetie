@@ -1,16 +1,17 @@
-<h1>Ваше замовлення</h1>
+<div class="order-summary-container">
+  <h1 class="page-title">Ваше замовлення</h1>
 
-<h2>Товари:</h2>
-<ul>
-  <% @order.order_items.each do |item| %>
-    <li>
-      <%= item.product.name %> - <%= item.quantity %> шт. за <%= number_to_currency(item.price) %>
-    </li>
-  <% end %>
-</ul>
+  <h2 class="section-title">Товари:</h2>
+  <ul class="order-items-list">
+    <% @order.order_items.each do |item| %>
+      <li class="order-item">
+        <%= item.product.name %> - <%= item.quantity %> шт. за <%= number_to_currency(item.price) %>
+      </li>
+    <% end %>
+  </ul>
 
-<p>Загальна сума: <strong><%= number_to_currency(@order.total_price) %></strong></p>
-<p>Спосіб доставки: <%= @order.delivery_method %></p>
-<p>Місце доставки: <%= @order.delivery_location %></p>
-<p>Спосіб оплати: <%= @order.payment_method %></p>
-
+  <p class="order-total">Загальна сума: <strong><%= number_to_currency(@order.total_price) %></strong></p>
+  <p class="order-info"><strong>Спосіб доставки:</strong> <%= @order.delivery_method %></p>
+  <p class="order-info"><strong>Місце доставки:</strong> <%= @order.delivery_location %></p>
+  <p class="order-info"><strong>Спосіб оплати:</strong> <%= @order.payment_method %></p>
+</div>

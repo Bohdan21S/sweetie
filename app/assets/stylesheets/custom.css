@@ -1,0 +1,1112 @@
+/* Навігаційна панель */
+.navbar {
+    background-color: #f8d5c4; /* Пастельний рожевий */
+    padding: 15px 20px;
+    border-bottom: 2px solid #e2a499;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    color: #4c4c4c;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.nav-link:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+.logout-link {
+    color: #f4978e; /* Кораловий колір для виходу */
+}
+
+.logout-link:hover {
+    color: #d45555;
+}
+
+/* Вітання для користувача */
+.user-greeting {
+    margin-right: 15px;
+    color: #4c4c4c;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Основний вміст */
+.content {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px;
+    font-family: 'Georgia', serif;
+}
+
+.notice {
+    background-color: #d4edda; /* Світло-зелений для повідомлень */
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.alert {
+    background-color: #f8d7da; /* Світло-червоний для помилок */
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Заголовки */
+.page-title, .product-title {
+    text-align: center;
+    font-size: 28px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Панель категорій */
+.category-panel {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn-category {
+    background-color: #c8e3d4;
+    color: #333333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-category:hover {
+    background-color: #a8d3bb;
+}
+
+/* Поле пошуку */
+.search-bar {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.search-input {
+    width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Список товарів */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 250px;
+}
+
+.product-image {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.product-name {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product-price,
+.product-category {
+    margin: 5px 0;
+    color: #666666;
+}
+
+/* Деталі товару */
+.product-details {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-image-large {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.review {
+    margin-top: 20px;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.review-image {
+    max-width: 100px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.review-images {
+    margin-top: 10px;
+}
+
+.no-products {
+    text-align: center;
+    font-size: 16px;
+    color: #888888;
+}
+
+
+/* Заголовок товару */
+.product-title {
+    text-align: center;
+    font-size: 28px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Зображення товару */
+.product-image-large {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Деталі товару */
+.product-description,
+.product-price,
+.product-weight,
+.product-category {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555555;
+}
+
+/* Форма додавання товару до корзини */
+.add-to-cart {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.quantity-input {
+    width: 60px;
+    padding: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn-primary {
+    background-color: #f4978e;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #e38679;
+}
+
+.btn-secondary {
+    background-color: #c8e3d4;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #a8d3bb;
+}
+
+.btn-warning {
+    background-color: #f7c948;
+    color: #333;
+}
+
+.btn-warning:hover {
+    background-color: #f4b400;
+}
+
+/* Форма відгуків */
+.review-form {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.rating-input,
+.review-textarea,
+.file-input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Відгуки */
+.review {
+    background-color: #ffffff;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.review-images {
+    margin-top: 10px;
+}
+
+.review-image {
+    max-width: 100px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+/* Панель для вибору категорій */
+.product-indexpage-category-panel {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.product-indexpage-btn-category {
+    padding: 8px 15px;
+    border: 1px solid #f7c6a5;
+    background-color: #fef5e7; /* Кремовий */
+    color: #6a4c93;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.product-indexpage-btn-category:hover,
+.product-indexpage-active-category {
+    background-color: #f7c6a5;
+    color: white;
+}
+
+/* Поле для пошуку */
+.product-indexpage-search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.product-indexpage-search-input {
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #f7c6a5;
+    border-radius: 5px;
+}
+
+.product-indexpage-btn-search {
+    padding: 8px 15px;
+    border: none;
+    background-color: #f7c6a5;
+    color: white;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-indexpage-btn-search:hover {
+    background-color: #e27c4f;
+}
+
+
+
+.order-create-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f8f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-create-title {
+    font-size: 2em;
+    color: #6a3e2e;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.order-create-edit-btn {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #8b5e3c;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.order-create-section-title {
+    font-size: 1.5em;
+    color: #6a3e2e;
+    margin-top: 20px;
+}
+
+.order-create-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.order-create-item {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.order-create-total {
+    font-size: 1.4em;
+    color: #6a3e2e;
+    margin-top: 15px;
+}
+
+.order-create-form-group {
+    margin-bottom: 20px;
+}
+
+.order-create-form-label {
+    display: block;
+    font-weight: bold;
+    color: #6a3e2e;
+    margin-bottom: 5px;
+}
+
+.order-create-form-select,
+.order-create-form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.order-create-submit-btn {
+    padding: 12px 20px;
+    background-color: #8b5e3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 25px;
+}
+
+.order-create-submit-btn:hover {
+    background-color: #6a3e2e;
+}
+
+
+.order-summary-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff9f4;
+    border: 1px solid #ffdab9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff7043;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #ff7043;
+}
+
+.order-items-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.order-item {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.order-total {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #d84315;
+}
+
+.order-info {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+.cart-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff9f4;
+    border: 1px solid #ffdab9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff7043;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cart-table th,
+.cart-table td {
+    border: 1px solid #ffdab9;
+    padding: 10px;
+    text-align: center;
+}
+
+.cart-table th {
+    background-color: #ff7043;
+    color: #fff;
+    font-weight: bold;
+}
+
+.cart-table td {
+    background-color: #fff9f4;
+    color: #333;
+}
+
+.cart-item {
+    font-size: 16px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-btn {
+    font-size: 14px;
+    color: #fff;
+    background-color: #ff7043;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.quantity-btn:hover {
+    background-color: #d84315;
+}
+
+.quantity-display {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.btn-danger {
+    background-color: #e57373;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background-color: #c62828;
+}
+
+.cart-total {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: right;
+    color: #d84315;
+}
+
+.empty-cart {
+    font-size: 16px;
+    text-align: center;
+    color: #757575;
+    margin-top: 20px;
+}
+
+.checkout-btn {
+    display: block;
+    max-width: 200px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #ff7043;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.checkout-btn:hover {
+    background-color: #d84315;
+}
+
+
+.review-edit-container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #fff8f0;
+    border: 2px solid #f8c8b2;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review-edit-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #d75d3e;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Arial', sans-serif;
+}
+
+.review-edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-edit-form-group {
+    margin-bottom: 20px;
+}
+
+.review-edit-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.review-edit-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #f8c8b2;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+}
+
+.review-edit-input:focus {
+    border-color: #d75d3e;
+    outline: none;
+}
+
+.review-edit-current-images-title {
+    font-size: 18px;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.review-edit-current-images {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.review-edit-current-image {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #f8c8b2;
+}
+
+.review-edit-submit-btn {
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #d75d3e;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.review-edit-submit-btn:hover {
+    background-color: #c0522e;
+}
+
+.review-edit-back-btn {
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #f1a10f;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.review-edit-back-btn:hover {
+    background-color: #d8880c;
+}
+
+
+
+
+/* Загальні стилі для сторінки зворотного зв’язку */
+.feedbackpage-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fdf7f4; /* Пастельний фон */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedbackpage-title {
+    font-size: 24px;
+    color: #444;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Стилі для форми */
+.feedbackpage-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feedbackpage-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedbackpage-label {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+    font-family: 'Arial', sans-serif;
+}
+
+.feedbackpage-input {
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+.feedbackpage-input:focus {
+    border-color: #f08c74; /* М’який акцент */
+    outline: none;
+}
+
+/* Додаткові стилі для текстового поля */
+.feedbackpage-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Стилі для кнопки */
+.feedbackpage-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #f08c74; /* Пастельний оранжевий */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.feedbackpage-btn:hover {
+    background-color: #e6785e;
+}
+
+.feedbackpage-submit-btn {
+    align-self: center;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Стилі для файлового поля */
+.feedbackpage-file-input {
+    padding: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Загальні стилі для реєстрації */
+.signup-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7fbf9; /* Легкий зелений фон */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.signup-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.signup-form-group {
+    margin-bottom: 15px;
+}
+
+.signup-form-label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.signup-form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.signup-form-input:focus {
+    border-color: #6ec5a4; /* Легкий зелений акцент */
+    outline: none;
+}
+
+.signup-btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: #6ec5a4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.signup-btn-primary:hover {
+    background-color: #5ab191;
+}
+
+
+
+
+/* Загальні стилі для входу */
+.login-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f5ff; /* Легкий фіолетовий фон */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.login-form-group {
+    margin-bottom: 15px;
+}
+
+.login-form-label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.login-form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.login-form-input:focus {
+    border-color: #a590e0; /* Легкий фіолетовий акцент */
+    outline: none;
+}
+
+.login-btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: #a590e0;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn-primary:hover {
+    background-color: #8d78c7;
+}
+
+
+/* Загальні стилі для створення категорії */
+.category-create-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff8e6; /* Пастельний жовтий фон */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.category-create-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #444;
+}
+
+/* Стилі для форми */
+.category-create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.category-create-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.category-create-label {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+    font-family: 'Arial', sans-serif;
+}
+
+.category-create-input {
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+.category-create-input:focus {
+    border-color: #f3c14b; /* М'який акцент */
+    outline: none;
+}
+
+/* Стилі для кнопки */
+.category-create-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #f3c14b; /* Пастельний жовтий */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.category-create-btn:hover {
+    background-color: #e0ac3f;
+}
+
+.category-create-btn-primary {
+    align-self: center;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+
+/* Загальні стилі для сторінки створення продукту */
+.product-create-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5; /* Легкий сірий фон */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-create-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Стилі для форми */
+.product-create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-create-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-create-label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.product-create-input,
+.product-create-select,
+.product-create-textarea,
+.product-create-file-input {
+    padding: 12px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.product-create-input:focus,
+.product-create-select:focus,
+.product-create-textarea:focus,
+.product-create-file-input:focus {
+    border-color: #56ccf2; /* Блакитний акцент */
+    box-shadow: 0 0 5px rgba(86, 204, 242, 0.5);
+    outline: none;
+}
+
+.product-create-select {
+    transition: border-color 0.3s ease;
+}
+
+.product-create-select:hover {
+    border-color: #56ccf2; /* Плавна зміна кольору при наведенні */
+}
+
+.product-create-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Стилі для кнопки */
+.product-create-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #56ccf2; /* Блакитний */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.product-create-btn:hover {
+    background-color: #3c8bc6; /* Темніший блакитний при наведенні */
+}
+
+.product-create-btn-primary {
+    align-self: center;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+
+

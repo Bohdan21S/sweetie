@@ -1,37 +1,39 @@
-<h1>Додати новий товар</h1>
+<div class="product-create-wrapper">
+  <h1 class="product-create-title">Додати новий товар</h1>
 
-<%= form_with(model: @product, url: admin_products_path) do |f| %>
-  <div>
-    <%= f.label :name, 'Назва товару' %>
-    <%= f.text_field :name %>
-  </div>
+  <%= form_with(model: @product, url: admin_products_path, class: "product-create-form") do |f| %>
+    <div class="product-create-form-group">
+      <%= f.label :name, 'Назва товару', class: "product-create-label" %>
+      <%= f.text_field :name, class: "product-create-input" %>
+    </div>
 
-  <div>
-    <%= f.label :price, 'Ціна товару' %>
-    <%= f.number_field :price, step: 0.01 %>
-  </div>
+    <div class="product-create-form-group">
+      <%= f.label :price, 'Ціна товару', class: "product-create-label" %>
+      <%= f.number_field :price, step: 0.01, class: "product-create-input" %>
+    </div>
 
-  <div>
-    <%= f.label :weight, 'Вага товару (грам)' %>
-    <%= f.number_field :weight %>
-  </div>
+    <div class="product-create-form-group">
+      <%= f.label :weight, 'Вага товару (грам)', class: "product-create-label" %>
+      <%= f.number_field :weight, class: "product-create-input" %>
+    </div>
 
-  <div>
-    <%= f.label :category_id, 'Категорія' %>
-    <%= f.collection_select :category_id, @categories, :id, :name, prompt: 'Оберіть категорію' %>
-  </div>
+    <div class="product-create-form-group">
+      <%= f.label :category_id, 'Категорія', class: "product-create-label" %>
+      <%= f.collection_select :category_id, @categories, :id, :name, prompt: 'Оберіть категорію', class: "product-create-select" %>
+    </div>
 
-  <div>
-    <%= f.label :description, 'Опис товару' %>
-    <%= f.text_area :description %>
-  </div>
+    <div class="product-create-form-group">
+      <%= f.label :description, 'Опис товару', class: "product-create-label" %>
+      <%= f.text_area :description, class: "product-create-textarea" %>
+    </div>
 
-  <div>
-    <%= f.label :image, 'Зображення товару' %>
-    <%= f.file_field :image %>
-  </div>
+    <div class="product-create-form-group">
+      <%= f.label :image, 'Зображення товару', class: "product-create-label" %>
+      <%= f.file_field :image, class: "product-create-file-input" %>
+    </div>
 
-  <div>
-    <%= f.submit 'Додати товар' %>
-  </div>
-<% end %>
+    <div class="product-create-actions">
+      <%= f.submit 'Додати товар', class: "product-create-btn product-create-btn-primary" %>
+    </div>
+  <% end %>
+</div>

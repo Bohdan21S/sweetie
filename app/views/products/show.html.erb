@@ -1,106 +1,93 @@
-<h1><%= @product.name %></h1>
+<div class="product-details">
+  <h1 class="product-title"><%= @product.name %></h1>
 
-<% if @product.image.attached? %>
-  <%= image_tag @product.image, style: "max-width: 300px;" %>
-<% end %>
+  <% if @product.image.attached? %>
+    <%= image_tag @product.image, class: 'product-image-large' %>
+  <% end %>
 
+  <p class="product-description"><strong>Опис:</strong> <%= @product.description %></p>
+  <p class="product-price"><strong>Ціна:</strong> $<%= @product.price %></p>
+  <p class="product-weight"><strong>Вага:</strong> <%= @product.weight %> грам</p>
+  <p class="product-category"><strong>Категорія:</strong> <%= @product.category.name %></p>
 
-<p>Description: <%= @product.description %></p>
-<p>Price: $<%= @product.price %></p>
-<p>Weight: <%= @product.weight %> grams</p>
-<p>Category: <%= @product.category.name %></p>
+  <!-- Форма для додавання товару до корзини -->
+  <div class="add-to-cart">
+    <%= form_with url: user_signed_in? ? cart_items_path : new_user_session_path, method: :post, local: true do |f| %>
+      <% if user_signed_in? %>
+        <%= hidden_field_tag :product_id, @product.id %>
+        <label for="quantity">Кількість:</label>
+        <%= number_field_tag :quantity, 1, min: 1, class: 'quantity-input' %>
+      <% end %>
+      <%= f.submit 'Додати до корзини', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
 
-<%= link_to 'Back to Products', products_path %>
+  <!-- Кнопка повернення до товарів -->
+  <%= link_to 'Повернутися до товарів', products_path, class: 'btn btn-secondary' %>
 
-<%= form_with url: user_signed_in? ? cart_items_path : new_user_session_path, method: :post do |f| %>
+  <!-- Відгуки -->
+  <h2>Залишити відгук</h2>
   <% if user_signed_in? %>
-    <%= hidden_field_tag :product_id, @product.id %>
-    <%= label_tag :quantity, 'Кількість' %>
-    <%= hidden_field_tag :quantity, 1 %>
-    <%= number_field_tag :quantity, 1, min: 1 %>
+    <%= form_with model: [@product, Review.new], local: true do |f| %>
+      <div class="review-form">
+        <div>
+          <%= f.label :rating, 'Оцінка (1-10):' %>
+          <%= f.number_field :rating, min: 1, max: 10, class: 'rating-input' %>
+        </div>
+        <div>
+          <%= f.label :content, 'Ваш відгук:' %>
+          <%= f.text_area :content, class: 'review-textarea' %>
+        </div>
+        <div>
+          <%= f.label :images, 'Додайте фотографії (за бажанням):' %>
+          <%= f.file_field :images, multiple: true, class: 'file-input' %>
+        </div>
+        <div>
+          <%= f.submit 'Залишити відгук', class: 'btn btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>Ви повинні <%= link_to 'увійти', new_user_session_path %>, щоб залишити відгук.</p>
   <% end %>
-  <%= f.submit 'Додати до корзини' %>
-<% end %>
 
-<h2>Залишити відгук</h2>
-
-<% if user_signed_in? %>
-  <%= form_with model: [@product, Review.new], local: true do |f| %>
-    <div>
-      <%= f.label :rating, 'Оцінка (1-10)' %>
-      <%= f.number_field :rating, min: 1, max: 10 %>
-    </div>
-
-    <div>
-      <%= f.label :content, 'Ваш відгук' %>
-      <%= f.text_area :content %>
-    </div>
-
-    <div>
-      <%= f.label :images, 'Додайте фотографії (за бажанням)' %>
-      <%= f.file_field :images, multiple: true %>
-    </div>
-
-    <div>
-      <%= f.submit 'Залишити відгук' %>
-    </div>
-  <% end %>
-<% else %>
-  <p>Ви повинні <%= link_to 'увійти', new_user_session_path %>, щоб залишити відгук.</p>
-<% end %>
-
-<% if user_signed_in? && current_user.admin? %>
+  <!-- Перегляд відгуків -->
   <h3>Відгуки</h3>
   <% @product.reviews.each do |review| %>
-    <div>
-      <p><strong><%= review.user.email %>:</strong></p>
-      <p>Оцінка: <%= review.rating %>/10</p>
+    <div class="review">
+      <p><strong><%= review.user.email %>:</strong> Оцінка: <%= review.rating %>/10</p>
       <p><%= review.content %></p>
-
       <% if review.images.attached? %>
-        <p>Фотографії:</p>
-        <% review.images.each do |image| %>
-          <%= image_tag image, style: 'max-width: 150px; margin-right: 10px;' %>
-        <% end %>
+        <div class="review-images">
+          <% review.images.each do |image| %>
+            <%= image_tag image, class: 'review-image' %>
+          <% end %>
+        </div>
       <% end %>
+      <% if review.user == current_user %>
+        <%= link_to 'Редагувати', edit_product_review_path(@product, review), class: 'btn btn-warning' %>
+      <% end %>
+      <%# if review.admin_response.present? %>
+<!--        <p><strong>Відповідь адміністратора:</strong> <%#= review.admin_response %></p>-->
+      <%# end %>
+
 
       <% if review.admin_response.present? %>
         <p><strong>Відповідь адміністратора:</strong> <%= review.admin_response %></p>
       <% else %>
-        <%= form_with url: admin_review_path(review), method: :patch, local: true do |f| %>
-          <div>
-            <%= f.label :admin_response, 'Ваша відповідь' %>
-            <%= f.text_area :admin_response %>
-          </div>
-          <%= f.submit 'Відповісти' %>
+        <% if user_signed_in? && current_user.admin? %>
+          <%= form_with url: admin_review_path(review), method: :patch, local: true do |f| %>
+            <div>
+              <%= f.label :admin_response, 'Ваша відповідь' %>
+              <%= f.text_area :admin_response %>
+            </div>
+            <%= f.submit 'Відповісти' %>
+          <% end %>
         <% end %>
+
       <% end %>
+
+
     </div>
-    <hr>
   <% end %>
-<% else %>
-  <h3>Відгуки</h3>
-  <% @product.reviews.each do |review| %>
-    <div>
-      <p><strong><%= review.user.email %>:</strong></p>
-      <p>Оцінка: <%= review.rating %>/10</p>
-      <p><%= review.content %></p>
-
-      <% if review.images.attached? %>
-        <p>Фотографії:</p>
-        <% review.images.each do |image| %>
-          <%= image_tag image, style: 'max-width: 150px; margin-right: 10px;' %>
-        <% end %>
-      <% end %>
-
-      <% if review.user == current_user %>
-        <%= link_to 'Редагувати', edit_product_review_path(@product, review), class: 'btn btn-warning' %>
-      <% end %>
-
-      <% if review.admin_response.present? %>
-        <p><strong>Відповідь адміністратора:</strong> <%= review.admin_response %></p>
-      <% end %>
-    </div>
-    <hr>
-  <% end %>
-<% end %>
+</div>

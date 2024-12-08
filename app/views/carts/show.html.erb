@@ -1,42 +1,44 @@
-<h1>Ваша корзина</h1>
+<div class="cart-container">
+  <h1 class="page-title">Ваша корзина</h1>
 
-<% if @cart_items.any? %>
-  <table>
-    <thead>
-    <tr>
-      <th>Назва</th>
-      <th>Ціна</th>
-      <th>Кількість</th>
-      <th>Разом</th>
-      <th>Дія</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @cart_items.each do |item| %>
+  <% if @cart_items.any? %>
+    <table class="cart-table">
+      <thead>
       <tr>
-        <td><%= item.product.name %></td>
-        <td><%= number_to_currency(item.product.price) %></td>
-        <td>
-          <%= form_with url: cart_item_path(item), method: :patch, local: true do |f| %>
-            <div style="display: flex; align-items: center;">
-              <%= button_to '-', cart_item_path(item, quantity: item.quantity - 1), method: :patch, class: 'btn btn-secondary', form_class: 'inline-button' %>
-              <span style="margin: 0 10px;"><%= item.quantity %></span>
-              <%= button_to '+', cart_item_path(item, quantity: item.quantity + 1), method: :patch, class: 'btn btn-secondary', form_class: 'inline-button' %>
-            </div>
-          <% end %>
-        </td>
-        <td><%= number_to_currency(item.product.price * item.quantity) %></td>
-        <td>
-          <%= button_to 'Видалити', cart_item_path(item), method: :delete, class: 'btn btn-danger', data: { confirm: 'Ви впевнені?' } %>
-        </td>
+        <th>Назва</th>
+        <th>Ціна</th>
+        <th>Кількість</th>
+        <th>Разом</th>
+        <th>Дія</th>
       </tr>
-    <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+      <% @cart_items.each do |item| %>
+        <tr class="cart-item">
+          <td><%= item.product.name %></td>
+          <td><%= number_to_currency(item.product.price) %></td>
+          <td>
+            <%= form_with url: cart_item_path(item), method: :patch, local: true, class: 'quantity-form' do |f| %>
+              <div class="quantity-controls">
+                <%= button_to '-', cart_item_path(item, quantity: item.quantity - 1), method: :patch, class: 'btn btn-secondary quantity-btn', form_class: 'inline-button' %>
+                <span class="quantity-display"><%= item.quantity %></span>
+                <%= button_to '+', cart_item_path(item, quantity: item.quantity + 1), method: :patch, class: 'btn btn-secondary quantity-btn', form_class: 'inline-button' %>
+              </div>
+            <% end %>
+          </td>
+          <td><%= number_to_currency(item.product.price * item.quantity) %></td>
+          <td>
+            <%= button_to 'Видалити', cart_item_path(item), method: :delete, class: 'btn btn-danger', data: { confirm: 'Ви впевнені?' } %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 
-  <p><strong>Загальна сума: <%= number_to_currency(@cart_items.sum { |item| item.product.price * item.quantity }) %></strong></p>
+    <p class="cart-total"><strong>Загальна сума: <%= number_to_currency(@cart_items.sum { |item| item.product.price * item.quantity }) %></strong></p>
 
-  <%= link_to 'Оформити замовлення', new_order_path, class: 'btn btn-primary' %>
-<% else %>
-  <p>Ваша корзина порожня.</p>
-<% end %>
+    <%= link_to 'Оформити замовлення', new_order_path, class: 'btn btn-primary checkout-btn' %>
+  <% else %>
+    <p class="empty-cart">Ваша корзина порожня.</p>
+  <% end %>
+</div>

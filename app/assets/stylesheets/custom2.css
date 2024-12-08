@@ -1,0 +1,1031 @@
+/*!* Загальні стилі *!*/
+/*body {*/
+/*    font-family: 'Arial', sans-serif;*/
+/*    background-color: #f7f4f3; !* Пастельний бежевий фон *!*/
+/*    color: #333333;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+
+/*h1, h2, h3 {*/
+/*    color: #4c4c4c;*/
+/*    font-family: 'Georgia', serif;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*!* Навігаційна панель *!*/
+/*.navbar {*/
+/*    background-color: #f8d5c4; !* Пастельний рожевий *!*/
+/*    padding: 15px 20px;*/
+/*    border-bottom: 2px solid #e2a499;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.navbar .container {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    width: 100%;*/
+/*}*/
+
+/*.nav-left,*/
+/*.nav-right {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.nav-link {*/
+/*    color: #4c4c4c;*/
+/*    text-decoration: none;*/
+/*    margin: 0 10px;*/
+/*    font-weight: bold;*/
+/*    font-size: 16px;*/
+/*}*/
+
+/*.nav-link:hover {*/
+/*    color: #333;*/
+/*    text-decoration: underline;*/
+/*}*/
+
+/*.logout-link {*/
+/*    color: #f4978e; !* Кораловий колір для виходу *!*/
+/*}*/
+
+/*.logout-link:hover {*/
+/*    color: #d45555;*/
+/*}*/
+
+/*.user-greeting {*/
+/*    margin-right: 15px;*/
+/*    color: #4c4c4c;*/
+/*    font-size: 16px;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*!* Панель категорій *!*/
+/*.category-panel {*/
+/*    text-align: center;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.btn-category {*/
+/*    background-color: #c8e3d4;*/
+/*    color: #333333;*/
+/*    border: none;*/
+/*    padding: 10px 15px;*/
+/*    border-radius: 5px;*/
+/*    margin: 5px;*/
+/*    font-size: 14px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.btn-category:hover {*/
+/*    background-color: #a8d3bb;*/
+/*}*/
+
+/*.active-category {*/
+/*    background-color: #f4978e; !* Інший колір для вибраної категорії *!*/
+/*    color: #ffffff;*/
+/*}*/
+
+/*!* Поле пошуку *!*/
+/*.search-bar {*/
+/*    text-align: center;*/
+/*    margin: 20px auto;*/
+/*}*/
+
+/*.search-input {*/
+/*    width: 300px;*/
+/*    padding: 10px;*/
+/*    margin-right: 10px;*/
+/*    border-radius: 5px;*/
+/*    border: 1px solid #ccc;*/
+/*}*/
+
+/*!* Список товарів *!*/
+/*.product-list {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    justify-content: center;*/
+/*    gap: 20px;*/
+/*    padding: 0;*/
+/*    list-style: none;*/
+/*}*/
+
+/*.product-card {*/
+/*    background-color: #ffffff;*/
+/*    border-radius: 10px;*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+/*    padding: 15px;*/
+/*    text-align: center;*/
+/*    width: 250px;*/
+/*}*/
+
+/*.product-image {*/
+/*    max-width: 100%;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*.product-name {*/
+/*    font-size: 18px;*/
+/*    margin: 10px 0;*/
+/*}*/
+
+/*.product-price,*/
+/*.product-category {*/
+/*    margin: 5px 0;*/
+/*    color: #666666;*/
+/*}*/
+
+/*.no-products {*/
+/*    text-align: center;*/
+/*    font-size: 16px;*/
+/*    color: #888888;*/
+/*}*/
+
+/*!* Деталі товару *!*/
+/*.product-details {*/
+/*    max-width: 800px;*/
+/*    margin: 0 auto;*/
+/*    background-color: #ffffff;*/
+/*    border-radius: 10px;*/
+/*    padding: 20px;*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.product-image-large {*/
+/*    display: block;*/
+/*    margin: 0 auto 20px;*/
+/*    max-width: 100%;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*.product-description,*/
+/*.product-price,*/
+/*.product-weight,*/
+/*.product-category {*/
+/*    margin: 10px 0;*/
+/*    font-size: 16px;*/
+/*    color: #555555;*/
+/*}*/
+
+/*!* Додавання до корзини *!*/
+/*.add-to-cart {*/
+/*    margin: 20px 0;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.quantity-input {*/
+/*    width: 60px;*/
+/*    padding: 5px;*/
+/*    margin-left: 10px;*/
+/*    margin-right: 10px;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.btn-add-to-cart {*/
+/*    background-color: #a1cfc9; !* Пастельний м’ятний *!*/
+/*    color: white;*/
+/*    border: none;*/
+/*    padding: 10px 15px;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.btn-add-to-cart:hover {*/
+/*    background-color: #89b7b0;*/
+/*}*/
+
+/*!* Форма відгуків *!*/
+/*.review-form {*/
+/*    margin: 20px 0;*/
+/*    padding: 20px;*/
+/*    background-color: #f9f9f9;*/
+/*    border: 1px solid #ddd;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*.rating-input,*/
+/*.review-textarea,*/
+/*.file-input {*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    margin: 10px 0;*/
+/*    padding: 10px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*!* Відгуки *!*/
+/*.review {*/
+/*    margin-top: 30px;*/
+/*    background-color: #ffffff;*/
+/*    padding: 15px;*/
+/*    border-radius: 10px;*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.review-images {*/
+/*    margin-top: 10px;*/
+/*}*/
+
+/*.review-image {*/
+/*    max-width: 100px;*/
+/*    margin-right: 10px;*/
+/*    display: inline-block;*/
+/*}*/
+
+/*.admin-response {*/
+/*    margin-top: 15px;*/
+/*    background-color: #f4f4f4;*/
+/*    padding: 10px;*/
+/*    border-left: 5px solid #f4978e;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*!* Панель категорій *!*/
+/*.category-panel {*/
+/*    text-align: center;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.btn-category {*/
+/*    background-color: #c8e3d4;*/
+/*    color: #333333;*/
+/*    border: none;*/
+/*    padding: 10px 15px;*/
+/*    border-radius: 5px;*/
+/*    margin: 5px;*/
+/*    font-size: 14px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.btn-category:hover {*/
+/*    background-color: #a8d3bb;*/
+/*}*/
+
+/*.active-category {*/
+/*    background-color: #f4978e; !* Інший колір для вибраної категорії *!*/
+/*    color: #ffffff;*/
+/*}*/
+
+/*!* Додавання до корзини *!*/
+/*.btn-add-to-cart {*/
+/*    background-color: #a1cfc9;*/
+/*    color: white;*/
+/*    border: none;*/
+/*    padding: 10px 15px;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.btn-add-to-cart:hover {*/
+/*    background-color: #89b7b0;*/
+/*}*/
+
+/*!* Відгуки *!*/
+/*.review {*/
+/*    margin-top: 30px;*/
+/*    background-color: #ffffff;*/
+/*    padding: 15px;*/
+/*    border-radius: 10px;*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.admin-response {*/
+/*    margin-top: 15px;*/
+/*    background-color: #f4f4f4;*/
+/*    padding: 10px;*/
+/*    border-left: 5px solid #f4978e;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*.page-title {*/
+/*    text-align: center;*/
+/*    margin-bottom: 35px;*/
+/*}*/
+
+/*!* Контейнер сторінки редагування відгуку *!*/
+/*.review-edit-container {*/
+/*    max-width: 600px;*/
+/*    margin: 0 auto;*/
+/*    background-color: #ffffff;*/
+/*    border-radius: 10px;*/
+/*    padding: 20px;*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*!* Заголовок сторінки *!*/
+/*.page-title {*/
+/*    text-align: center;*/
+/*    font-size: 24px;*/
+/*    margin-bottom: 20px;*/
+/*    color: #333333;*/
+/*}*/
+
+/*!* Форма *!*/
+/*.review-edit-form {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+/*.form-group {*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.form-label {*/
+/*    font-weight: bold;*/
+/*    margin-bottom: 5px;*/
+/*    display: block;*/
+/*}*/
+
+/*.form-input {*/
+/*    width: 100%;*/
+/*    padding: 10px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 5px;*/
+/*    font-size: 14px;*/
+/*}*/
+
+/*!* Кнопки *!*/
+/*.btn {*/
+/*    padding: 10px 15px;*/
+/*    font-size: 14px;*/
+/*    border-radius: 5px;*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*    display: inline-block;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.btn-primary {*/
+/*    background-color: #f4978e;*/
+/*    color: white;*/
+/*    border: none;*/
+/*}*/
+
+/*.btn-primary:hover {*/
+/*    background-color: #e38679;*/
+/*}*/
+
+/*.btn-secondary {*/
+/*    background-color: #c8e3d4;*/
+/*    color: #333;*/
+/*    border: none;*/
+/*}*/
+
+/*.btn-secondary:hover {*/
+/*    background-color: #a8d3bb;*/
+/*}*/
+
+/*!* Поточні фото *!*/
+/*.current-images-title {*/
+/*    font-weight: bold;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*.current-images {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    gap: 10px;*/
+/*}*/
+
+/*.current-image {*/
+/*    max-height: 222px;*/
+/*    border-radius: 5px;*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*!* Контейнер форми *!*/
+/*.feedback-form-container {*/
+/*    max-width: 600px;*/
+/*    margin: 0 auto;*/
+/*    background-color: #ffffff;*/
+/*    border-radius: 10px;*/
+/*    padding: 20px;*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*!* Заголовок сторінки *!*/
+/*.page-title {*/
+/*    text-align: center;*/
+/*    font-size: 24px;*/
+/*    margin-bottom: 20px;*/
+/*    color: #333333;*/
+/*}*/
+
+/*!* Форма *!*/
+/*.feedback-form {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+/*.form-group {*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.form-label {*/
+/*    font-weight: bold;*/
+/*    margin-bottom: 5px;*/
+/*    display: block;*/
+/*}*/
+
+/*.form-input {*/
+/*    width: 100%;*/
+/*    padding: 10px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 5px;*/
+/*    font-size: 14px;*/
+/*}*/
+
+/*!* Кнопки *!*/
+/*.btn {*/
+/*    padding: 10px 15px;*/
+/*    font-size: 14px;*/
+/*    border-radius: 5px;*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*    display: inline-block;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.btn-primary {*/
+/*    background-color: #f4978e;*/
+/*    color: white;*/
+/*    border: none;*/
+/*}*/
+
+/*.btn-primary:hover {*/
+/*    background-color: #e38679;*/
+/*}*/
+
+
+/*!* Загальні стилі *!*/
+/*.page-title {*/
+/*    text-align: center;*/
+/*    font-size: 28px;*/
+/*    color: #333333;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.section-title {*/
+/*    font-size: 20px;*/
+/*    color: #555555;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*.section-subtitle {*/
+/*    font-size: 18px;*/
+/*    color: #555555;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*!* Форма *!*/
+/*.order-form-container,*/
+/*.order-summary-container {*/
+/*    max-width: 800px;*/
+/*    margin: 0 auto;*/
+/*    background-color: #ffffff;*/
+/*    padding: 20px;*/
+/*    border-radius: 10px;*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.order-form {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+/*.form-group {*/
+/*    margin-bottom: 15px;*/
+/*}*/
+
+/*.form-label {*/
+/*    font-weight: bold;*/
+/*    margin-bottom: 5px;*/
+/*    display: block;*/
+/*}*/
+
+/*.form-input,*/
+/*.form-select {*/
+/*    width: 100%;*/
+/*    padding: 10px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 5px;*/
+/*    font-size: 14px;*/
+/*}*/
+
+/*!* Список товарів *!*/
+/*.order-items-list {*/
+/*    list-style: none;*/
+/*    padding: 0;*/
+/*    margin: 15px 0;*/
+/*}*/
+
+/*.order-item {*/
+/*    background-color: #f8f8f8;*/
+/*    padding: 10px;*/
+/*    margin-bottom: 5px;*/
+/*    border-radius: 5px;*/
+/*    border: 1px solid #ddd;*/
+/*}*/
+
+/*.order-total {*/
+/*    font-size: 18px;*/
+/*    font-weight: bold;*/
+/*    margin-top: 15px;*/
+/*}*/
+
+/*!* Кнопки *!*/
+/*.btn {*/
+/*    padding: 10px 15px;*/
+/*    font-size: 14px;*/
+/*    border-radius: 5px;*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.btn-primary {*/
+/*    background-color: #f4978e;*/
+/*    color: white;*/
+/*    border: none;*/
+/*}*/
+
+/*.btn-primary:hover {*/
+/*    background-color: #e38679;*/
+/*}*/
+
+/*.btn-secondary {*/
+/*    background-color: #c8e3d4;*/
+/*    color: #333;*/
+/*}*/
+
+/*.btn-secondary:hover {*/
+/*    background-color: #a8d3bb;*/
+/*}*/
+
+/*!* Випадаючі підказки *!*/
+/*.city-suggestions {*/
+/*    border: 1px solid #ccc;*/
+/*    background: white;*/
+/*    position: absolute;*/
+/*    z-index: 1000;*/
+/*    margin-top: 5px;*/
+/*    width: 100%;*/
+/*    list-style: none;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.city-suggestions li {*/
+/*    padding: 10px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.city-suggestions li:hover {*/
+/*    background-color: #f8f8f8;*/
+/*}*/
+
+/*!* Контейнер для корзини *!*/
+/*.cart-container {*/
+/*    max-width: 900px;*/
+/*    margin: 20px auto;*/
+/*    padding: 20px;*/
+/*    background-color: #ffffff;*/
+/*    border-radius: 10px;*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*!* Заголовок сторінки *!*/
+/*.page-title {*/
+/*    text-align: center;*/
+/*    font-size: 28px;*/
+/*    color: #333333;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*!* Таблиця товарів *!*/
+/*.cart-table {*/
+/*    width: 100%;*/
+/*    border-collapse: collapse;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.cart-table th,*/
+/*.cart-table td {*/
+/*    padding: 10px;*/
+/*    text-align: center;*/
+/*    border: 1px solid #ddd;*/
+/*}*/
+
+/*.cart-table th {*/
+/*    background-color: #f4978e;*/
+/*    color: white;*/
+/*}*/
+
+/*.cart-item {*/
+/*    background-color: #f8f8f8;*/
+/*}*/
+
+/*.cart-item:hover {*/
+/*    background-color: #f1f1f1;*/
+/*}*/
+
+/*.cart-total {*/
+/*    text-align: right;*/
+/*    font-size: 18px;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*.empty-cart {*/
+/*    text-align: center;*/
+/*    font-size: 16px;*/
+/*    color: #888888;*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*!* Кнопки *!*/
+/*.btn {*/
+/*    padding: 10px 15px;*/
+/*    font-size: 14px;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.btn-secondary {*/
+/*    background-color: #c8e3d4;*/
+/*    color: #333;*/
+/*    border: none;*/
+/*}*/
+
+/*.btn-secondary:hover {*/
+/*    background-color: #a8d3bb;*/
+/*}*/
+
+/*.btn-danger {*/
+/*    background-color: #f4978e;*/
+/*    color: white;*/
+/*    border: none;*/
+/*}*/
+
+/*.btn-danger:hover {*/
+/*    background-color: #e38679;*/
+/*}*/
+
+/*.checkout-btn {*/
+/*    background-color: #f4978e;*/
+/*    color: white;*/
+/*    text-decoration: none;*/
+/*    padding: 10px 20px;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*.checkout-btn:hover {*/
+/*    background-color: #e38679;*/
+/*}*/
+
+/*!* Управління кількістю товару *!*/
+/*.quantity-controls {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.quantity-btn {*/
+/*    background-color: #f7d1c0;*/
+/*    color: #333;*/
+/*    padding: 5px 15px;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*    font-size: 16px;*/
+/*}*/
+
+/*.quantity-btn:hover {*/
+/*    background-color: #f1b8a3;*/
+/*}*/
+
+/*.quantity-display {*/
+/*    margin: 0 10px;*/
+/*    font-size: 16px;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*!* Внутрішній стиль для кнопок *!*/
+/*.inline-button {*/
+/*    display: inline-block;*/
+/*    background: none;*/
+/*    border: none;*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    cursor: pointer;*/
+/*}*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*!*  ВХІД ТА РЕЄСТРАЦІЯ  *!*/
+
+/*!* Контейнер для авторизації *!*/
+/*.custom-sign-up-container, .custom-login-container {*/
+/*    max-width: 400px;*/
+/*    margin: 50px auto;*/
+/*    padding: 30px;*/
+/*    background-color: #ffffff;*/
+/*    border-radius: 10px;*/
+/*    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*!* Заголовок *!*/
+/*.custom-sign-up-title, .custom-login-title {*/
+/*    text-align: center;*/
+/*    font-size: 28px;*/
+/*    color: #333333;*/
+/*    margin-bottom: 30px;*/
+/*}*/
+
+/*!* Стилі для форми *!*/
+/*.custom-sign-up-form, .custom-login-form {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+/*.custom-form-group {*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.custom-form-label {*/
+/*    font-weight: bold;*/
+/*    margin-bottom: 5px;*/
+/*    font-size: 14px;*/
+/*    display: block;*/
+/*}*/
+
+/*.custom-form-input {*/
+/*    width: 100%;*/
+/*    padding: 12px;*/
+/*    font-size: 14px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 5px;*/
+/*    transition: border 0.3s ease;*/
+/*}*/
+
+/*.custom-form-input:focus {*/
+/*    border: 1px solid #f4978e;*/
+/*    outline: none;*/
+/*}*/
+
+/*!* Кнопки *!*/
+/*.custom-btn {*/
+/*    padding: 12px 20px;*/
+/*    font-size: 16px;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*    background-color: #f4978e;*/
+/*    color: white;*/
+/*    border: none;*/
+/*    width: 100%;*/
+/*    transition: background-color 0.3s ease;*/
+/*}*/
+
+/*.custom-btn:hover {*/
+/*    background-color: #e38679;*/
+/*}*/
+
+/*!* Лінки *!*/
+/*.custom-auth-links {*/
+/*    text-align: center;*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*.custom-auth-links a {*/
+/*    color: #f4978e;*/
+/*    text-decoration: none;*/
+/*    font-size: 14px;*/
+/*}*/
+
+/*.custom-auth-links a:hover {*/
+/*    text-decoration: underline;*/
+/*}*/
+
+/*!* Чекбокс *!*/
+/*.custom-form-checkbox {*/
+/*    margin-right: 5px;*/
+/*}*/
+
+
+
+
+
+
+
+
+
+
+/*!*!* application.css *!*!*/
+
+/*!*!* Загальний стиль для навігаційної панелі *!*!*/
+/*!*.layout-navbar {*!*/
+/*!*    background-color: #fef5e7; !* Пастельний кремовий *!*!*/
+/*!*    border-bottom: 2px solid #f7c6a5; !* М'який оранжевий *!*!*/
+/*!*    padding: 10px 20px;*!*/
+/*!*}*!*/
+
+/*!*.layout-navbar-container {*!*/
+/*!*    display: flex;*!*/
+/*!*    justify-content: space-between;*!*/
+/*!*    align-items: center;*!*/
+/*!*    max-width: 1200px;*!*/
+/*!*    margin: 0 auto;*!*/
+/*!*}*!*/
+
+/*!*.layout-navbar-left, .layout-navbar-right {*!*/
+/*!*    display: flex;*!*/
+/*!*    gap: 15px;*!*/
+/*!*}*!*/
+
+/*!*.layout-nav-link {*!*/
+/*!*    text-decoration: none;*!*/
+/*!*    color: #6a4c93; !* Пастельний фіолетовий *!*!*/
+/*!*    font-weight: bold;*!*/
+/*!*    padding: 5px 10px;*!*/
+/*!*    border-radius: 5px;*!*/
+/*!*    transition: background-color 0.3s, color 0.3s;*!*/
+/*!*}*!*/
+
+/*!*.layout-nav-link:hover {*!*/
+/*!*    background-color: #f7c6a5;*!*/
+/*!*    color: #fff;*!*/
+/*!*}*!*/
+
+/*!*.layout-user-greeting {*!*/
+/*!*    color: #6a4c93;*!*/
+/*!*    font-size: 14px;*!*/
+/*!*    margin-right: 10px;*!*/
+/*!*}*!*/
+
+/*!*.layout-logout-link {*!*/
+/*!*    background-color: #f7c6a5;*!*/
+/*!*    color: white;*!*/
+/*!*}*!*/
+
+/*!*.layout-logout-link:hover {*!*/
+/*!*    background-color: #e27c4f;*!*/
+/*!*}*!*/
+
+/*!*!* Основний контент *!*!*/
+/*!*.layout-content {*!*/
+/*!*    padding: 20px;*!*/
+/*!*    background-color: #fffaf0;*!*/
+/*!*    min-height: calc(100vh - 60px); !* Висота сторінки мінус навігація *!*!*/
+/*!*}*!*/
+
+/*!*.layout-notice, .layout-alert {*!*/
+/*!*    padding: 10px;*!*/
+/*!*    border-radius: 5px;*!*/
+/*!*    margin-bottom: 15px;*!*/
+/*!*    font-weight: bold;*!*/
+/*!*}*!*/
+
+/*!*.layout-notice {*!*/
+/*!*    background-color: #eafbea; !* Світло-зелений *!*!*/
+/*!*    color: #356859;*!*/
+/*!*}*!*/
+
+/*!*.layout-alert {*!*/
+/*!*    background-color: #fce4e4; !* Світло-рожевий *!*!*/
+/*!*    color: #d64550;*!*/
+/*!*}*!*/
+
+
+
+
+
+
+/*!*!* products/index.css *!*!*/
+
+/*!*!* Заголовок сторінки *!*!*/
+/*!*.product-indexpage-title {*!*/
+/*!*    font-size: 2rem;*!*/
+/*!*    color: #6a4c93; !* Пастельний фіолетовий *!*!*/
+/*!*    text-align: center;*!*/
+/*!*    margin-bottom: 20px;*!*/
+/*!*}*!*/
+
+/*!*!* Панель для вибору категорій *!*!*/
+/*!*.product-indexpage-category-panel {*!*/
+/*!*    display: flex;*!*/
+/*!*    justify-content: center;*!*/
+/*!*    gap: 10px;*!*/
+/*!*    margin-bottom: 20px;*!*/
+/*!*}*!*/
+
+/*!*.product-indexpage-btn-category {*!*/
+/*!*    padding: 8px 15px;*!*/
+/*!*    border: 1px solid #f7c6a5;*!*/
+/*!*    background-color: #fef5e7; !* Кремовий *!*!*/
+/*!*    color: #6a4c93;*!*/
+/*!*    border-radius: 5px;*!*/
+/*!*    text-decoration: none;*!*/
+/*!*    font-weight: bold;*!*/
+/*!*    transition: background-color 0.3s, color 0.3s;*!*/
+/*!*}*!*/
+
+/*!*.product-indexpage-btn-category:hover,*!*/
+/*!*.product-indexpage-active-category {*!*/
+/*!*    background-color: #f7c6a5;*!*/
+/*!*    color: white;*!*/
+/*!*}*!*/
+
+/*!*!* Поле для пошуку *!*!*/
+/*!*.product-indexpage-search-bar {*!*/
+/*!*    display: flex;*!*/
+/*!*    justify-content: center;*!*/
+/*!*    margin-bottom: 20px;*!*/
+/*!*}*!*/
+
+/*!*.product-indexpage-search-input {*!*/
+/*!*    width: 300px;*!*/
+/*!*    padding: 8px;*!*/
+/*!*    border: 1px solid #f7c6a5;*!*/
+/*!*    border-radius: 5px;*!*/
+/*!*}*!*/
+
+/*!*.product-indexpage-btn-search {*!*/
+/*!*    padding: 8px 15px;*!*/
+/*!*    border: none;*!*/
+/*!*    background-color: #f7c6a5;*!*/
+/*!*    color: white;*!*/
+/*!*    border-radius: 5px;*!*/
+/*!*    margin-left: 10px;*!*/
+/*!*    cursor: pointer;*!*/
+/*!*    transition: background-color 0.3s;*!*/
+/*!*}*!*/
+
+/*!*.product-indexpage-btn-search:hover {*!*/
+/*!*    background-color: #e27c4f;*!*/
+/*!*}*!*/
+
+/*!*!* Список товарів *!*!*/
+/*!*.product-indexpage-list {*!*/
+/*!*    display: flex;*!*/
+/*!*    flex-wrap: wrap;*!*/
+/*!*    justify-content: center;*!*/
+/*!*    gap: 20px;*!*/
+/*!*}*!*/
+
+/*!*.product-indexpage-card {*!*/
+/*!*    background-color: #fffaf0; !* Світлий фон *!*!*/
+/*!*    border: 1px solid #f7c6a5;*!*/
+/*!*    border-radius: 10px;*!*/
+/*!*    padding: 15px;*!*/
+/*!*    text-align: center;*!*/
+/*!*    width: 250px;*!*/
+/*!*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*!*/
+/*!*}*!*/
+
+/*!*.product-indexpage-image {*!*/
+/*!*    max-width: 100%;*!*/
+/*!*    border-radius: 5px;*!*/
+/*!*}*!*/
+
+/*!*.product-indexpage-name {*!*/
+/*!*    font-size: 1.2rem;*!*/
+/*!*    color: #6a4c93;*!*/
+/*!*    margin: 10px 0;*!*/
+/*!*}*!*/
+
+/*!*.product-indexpage-price, .product-indexpage-category {*!*/
+/*!*    color: #6a4c93;*!*/
+/*!*    margin: 5px 0;*!*/
+/*!*}*!*/
+
+/*!*.product-indexpage-btn-add-to-cart {*!*/
+/*!*    padding: 8px 15px;*!*/
+/*!*    border: none;*!*/
+/*!*    background-color: #f7c6a5;*!*/
+/*!*    color: white;*!*/
+/*!*    border-radius: 5px;*!*/
+/*!*    cursor: pointer;*!*/
+/*!*    transition: background-color 0.3s;*!*/
+/*!*}*!*/
+
+/*!*.product-indexpage-btn-add-to-cart:hover {*!*/
+/*!*    background-color: #e27c4f;*!*/
+/*!*}*!*/
+
+/*!*!* Повідомлення, якщо товарів немає *!*!*/
+/*!*.product-indexpage-no-products {*!*/
+/*!*    text-align: center;*!*/
+/*!*    color: #d64550; !* Червоний *!*!*/
+/*!*    font-size: 1.2rem;*!*/
+/*!*    margin-top: 20px;*!*/
+/*!*}*!*/

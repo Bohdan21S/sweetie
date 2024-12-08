@@ -1,73 +1,140 @@
-<h1>Оформлення замовлення</h1>
+<div class="order-create-container">
+  <h1 class="order-create-title">Оформлення замовлення</h1>
 
-<%= link_to 'Редагувати замовлення', cart_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Редагувати замовлення', cart_path, class: 'order-create-edit-btn' %>
 
-<h2>Ваші товари:</h2>
-<ul>
-  <% @cart_items.each do |item| %>
-    <li>
-      <%= item.product.name %> - <%= item.quantity %> шт. за <%= number_to_currency(item.product.price) %>
-    </li>
+  <h2 class="order-create-section-title">Ваші товари:</h2>
+  <ul class="order-create-items-list">
+    <% @cart_items.each do |item| %>
+      <li class="order-create-item">
+        <%= item.product.name %> - <%= item.quantity %> шт. за <%= number_to_currency(item.product.price) %>
+      </li>
+    <% end %>
+  </ul>
+  <p class="order-create-total">Загальна сума: <strong><%= number_to_currency(@total_price) %></strong></p>
+
+  <h2 class="section-title">Вибір доставки</h2>
+  <%= form_with model: @order, local: true, id: "order-form", class: "order-form" do |f| %>
+    <div class="order-create-form-group">
+      <%= f.label :delivery_method, 'Спосіб доставки:', class: "order-create-form-label" %>
+      <%= f.select :delivery_method, ['Самовивіз', 'Нова Пошта'], prompt: "Оберіть спосіб доставки", id: "order-create-delivery-method", class: "order-create-form-select" %>
+    </div>
+
+    <!-- Самовивіз -->
+    <div id="pickup-options" style="display: none;">
+      <%= f.label :pickup_location, 'Адреса магазину для самовивозу:', class: "form-label" %>
+      <%= f.select :pickup_location, ['Київ, вул. Хрещатик, 1', 'Львів, пл. Ринок, 10', 'Одеса, вул. Дерибасівська, 5'], prompt: 'Оберіть адресу', class: "form-select" %>
+    </div>
+
+    <!-- Нова Пошта -->
+    <div id="nova-poshta-options" style="display: none;">
+      <%= f.label :city, 'Місто доставки:', class: "form-label" %>
+      <%= text_field_tag :city, nil, placeholder: 'Введіть ваше місто', id: 'city-input', class: 'form-input', autocomplete: 'off' %>
+      <ul id="city-suggestions" class="city-suggestions"></ul>
+
+      <div id="branches-container" style="margin-top: 10px;">
+        <%= f.label :nova_poshta_branch, 'Відділення Нової Пошти:', class: "form-label" %>
+        <%= f.select :nova_poshta_branch, [], prompt: 'Оберіть відділення', id: 'nova-poshta-branches', class: "form-select" %>
+      </div>
+    </div>
+
+    <!-- Спосіб оплати -->
+    <div class="form-group">
+      <%= f.label :payment_method, 'Спосіб оплати:', class: "form-label" %>
+      <%= f.select :payment_method, ['Готівка', 'Карта у відділенні', 'Карта на сайті'], prompt: 'Оберіть спосіб оплати', id: "payment-method", class: "form-select" %>
+    </div>
+
+    <!-- Поле для даних карти -->
+    <div id="card-details" style="display: none; margin-top: 20px;">
+      <h3 class="section-subtitle">Введіть дані вашої карти:</h3>
+      <div class="form-group">
+        <%= label_tag :card_number, 'Номер карти:', class: "form-label" %>
+        <%= text_field_tag :card_number, nil, placeholder: '1234 5678 9012 3456', class: 'form-input', maxlength: 19 %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :card_expiry, 'Термін дії (MM/YY):', class: "form-label" %>
+        <%= text_field_tag :card_expiry, nil, placeholder: 'MM/YY', class: 'form-input', maxlength: 5 %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :card_cvv, 'CVV:', class: "form-label" %>
+        <%= text_field_tag :card_cvv, nil, placeholder: '123', class: 'form-input', maxlength: 3 %>
+      </div>
+    </div>
+
+    <div class="order-create-form-group">
+      <%= f.submit 'Оформити замовлення', class: 'order-create-submit-btn' %>
+    </div>
   <% end %>
-</ul>
-<p>Загальна сума: <strong><%= number_to_currency(@total_price) %></strong></p>
-
-<h2>Вибір доставки</h2>
-<%= form_with model: @order, local: true, id: "order-form" do |f| %>
-  <div>
-    <%= f.label :delivery_method, 'Спосіб доставки' %>
-    <%= f.select :delivery_method, ['Самовивіз', 'Нова Пошта'], prompt: "Оберіть спосіб доставки", dom_id: "delivery-method" %>
-  </div>
+</div>
 
 
-  <!-- Самовивіз -->
-  <div id="pickup-options" style="display: none;">
-    <!--    <div id="pickup-options">-->
-    <%= f.label :pickup_location, 'Адреса магазину для самовивозу' %>
-    <%= f.select :pickup_location, ['Київ, вул. Хрещатик, 1', 'Львів, пл. Ринок, 10', 'Одеса, вул. Дерибасівська, 5'], prompt: 'Оберіть адресу' %>
-  </div>
-
-  <!-- Нова Пошта -->
-  <!--  <div id="nova-poshta-options" style="display: none;">-->
-  <div id="nova-poshta-options">
-    <%= f.label :city, 'Місто доставки' %>
-    <%= text_field_tag :city, nil, placeholder: 'Введіть ваше місто', id: 'city-input', autocomplete: 'off' %>
-    <ul id="city-suggestions" style="border: 1px solid #ccc; background: white; position: absolute; z-index: 1000; display: none;"></ul>
-
-    <div id="branches-container" style="margin-top: 10px;">
-      <%= f.label :nova_poshta_branch, 'Відділення Нової Пошти' %>
-      <%= f.select :nova_poshta_branch, [], prompt: 'Оберіть відділення', id: 'nova-poshta-branches' %>
-    </div>
-  </div>
 
 
-  <!-- Спосіб оплати -->
-  <div>
-    <%= f.label :payment_method, 'Спосіб оплати' %>
-    <%= f.select :payment_method, ['Готівка', 'Карта у відділенні', 'Карта на сайті'], prompt: 'Оберіть спосіб оплати', id: "payment-method" %>
-  </div>
-
-  <!-- Поле для даних карти -->
-  <div id="card-details" style="display: none; margin-top: 20px;">
-    <h3>Введіть дані вашої карти:</h3>
-    <div>
-      <%= label_tag :card_number, 'Номер карти' %>
-      <%= text_field_tag :card_number, nil, placeholder: '1234 5678 9012 3456', class: 'form-control', maxlength: 19 %>
-    </div>
-    <div>
-      <%= label_tag :card_expiry, 'Термін дії (MM/YY)' %>
-      <%= text_field_tag :card_expiry, nil, placeholder: 'MM/YY', class: 'form-control', maxlength: 5 %>
-    </div>
-    <div>
-      <%= label_tag :card_cvv, 'CVV' %>
-      <%= text_field_tag :card_cvv, nil, placeholder: '123', class: 'form-control', maxlength: 3 %>
-    </div>
-  </div>
 
 
-  <div>
-    <%= f.submit 'Оформити замовлення', class: 'btn btn-primary' %>
-  </div>
 
-<% end %>
 
+<!--<div class="order-create-container">-->
+<!--  <h1 class="order-create-title">Оформлення замовлення</h1>-->
+
+  <%#= link_to 'Редагувати замовлення', cart_path, class: 'order-create-edit-btn' %>
+
+<!--  <h2 class="order-create-section-title">Ваші товари:</h2>-->
+<!--  <ul class="order-create-items-list">-->
+    <%# @cart_items.each do |item| %>
+<!--      <li class="order-create-item">-->
+<!--        <%#= item.product.name %> - <%#= item.quantity %> шт. за <%#= number_to_currency(item.product.price) %>-->
+<!--      </li>-->
+    <%# end %>
+<!--  </ul>-->
+<!--  <p class="order-create-total">Загальна сума: <strong><%#= number_to_currency(@total_price) %></strong></p>-->
+
+<!--  <h2 class="order-create-section-title">Вибір доставки</h2>-->
+  <%#= form_with model: @order, local: true, id: "order-create-form", class: "order-create-form" do |f| %>
+<!--    <div class="order-create-form-group">-->
+      <%#= f.label :delivery_method, 'Спосіб доставки:', class: "order-create-form-label" %>
+      <%#= f.select :delivery_method, ['Самовивіз', 'Нова Пошта'], prompt: "Оберіть спосіб доставки", id: "order-create-delivery-method", class: "order-create-form-select" %>
+<!--    </div>-->
+
+<!--    <div id="order-create-pickup-options" style="display: none;">-->
+      <%#= f.label :pickup_location, 'Адреса магазину для самовивозу:', class: "order-create-form-label" %>
+      <%#= f.select :pickup_location, ['Київ, вул. Хрещатик, 1', 'Львів, пл. Ринок, 10', 'Одеса, вул. Дерибасівська, 5'], prompt: 'Оберіть адресу', class: "order-create-form-select" %>
+<!--    </div>-->
+
+<!--    <div id="order-create-nova-poshta-options" style="display: none;">-->
+      <%#= f.label :city, 'Місто доставки:', class: "order-create-form-label" %>
+      <%#= text_field_tag :city, nil, placeholder: 'Введіть ваше місто', id: 'order-create-city-input', class: 'order-create-form-input', autocomplete: 'off' %>
+<!--      <ul id="order-create-city-suggestions" class="order-create-city-suggestions"></ul>-->
+
+<!--      <div id="order-create-branches-container" style="margin-top: 10px;">-->
+        <%#= f.label :nova_poshta_branch, 'Відділення Нової Пошти:', class: "order-create-form-label" %>
+        <%#= f.select :nova_poshta_branch, [], prompt: 'Оберіть відділення', id: 'order-create-nova-poshta-branches', class: "order-create-form-select" %>
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="order-create-form-group">-->
+      <%#= f.label :payment_method, 'Спосіб оплати:', class: "order-create-form-label" %>
+      <%#= f.select :payment_method, ['Готівка', 'Карта у відділенні', 'Карта на сайті'], prompt: 'Оберіть спосіб оплати', id: "order-create-payment-method", class: "order-create-form-select" %>
+<!--    </div>-->
+
+<!--    <div id="order-create-card-details" style="display: none; margin-top: 20px;">-->
+<!--      <h3 class="order-create-subtitle">Введіть дані вашої карти:</h3>-->
+<!--      <div class="order-create-form-group">-->
+        <%#= label_tag :card_number, 'Номер карти:', class: "order-create-form-label" %>
+        <%#= text_field_tag :card_number, nil, placeholder: '1234 5678 9012 3456', class: 'order-create-form-input', maxlength: 19 %>
+<!--      </div>-->
+<!--      <div class="order-create-form-group">-->
+        <%#= label_tag :card_expiry, 'Термін дії (MM/YY):', class: "order-create-form-label" %>
+        <%#= text_field_tag :card_expiry, nil, placeholder: 'MM/YY', class: 'order-create-form-input', maxlength: 5 %>
+<!--      </div>-->
+<!--      <div class="order-create-form-group">-->
+        <%#= label_tag :card_cvv, 'CVV:', class: "order-create-form-label" %>
+        <%#= text_field_tag :card_cvv, nil, placeholder: '123', class: 'order-create-form-input', maxlength: 3 %>
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="order-create-form-group">-->
+      <%#= f.submit 'Оформити замовлення', class: 'order-create-submit-btn' %>
+<!--    </div>-->
+  <%# end %>
+<!--</div>-->

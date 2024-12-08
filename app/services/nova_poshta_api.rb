@@ -5,7 +5,7 @@ class NovaPoshtaApi
   BASE_URL = 'https://api.novaposhta.ua/v2.0/json/'
 
   def self.get_branches(city)
-    api_key = ENV['NOVA_POSHTA_API_KEY'] # Встановіть API-ключ у .env
+    api_key = ENV['NOVA_POSHTA_API_KEY']
     body =
     #   {
     #   "apiKey": api_key,
@@ -39,7 +39,7 @@ class NovaPoshtaApi
 
 
   def self.get_cities(query)
-    api_key = ENV['NOVA_POSHTA_API_KEY'] # Додайте ваш API-ключ у .env
+    api_key = ENV['NOVA_POSHTA_API_KEY']
     body = {
       apiKey: api_key,
       modelName: 'Address',

@@ -1,26 +1,32 @@
-<h2>Log in</h2>
+<div class="login-wrapper">
+  <div class="login-container">
+    <h2 class="login-title">Вхід</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "login-form") do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource, class: "login-error-messages" %>
+
+      <div class="login-form-group">
+        <%= f.label :email, 'Електронна пошта:', class: "login-form-label" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "login-form-input" %>
+      </div>
+
+      <div class="login-form-group">
+        <%= f.label :password, 'Пароль:', class: "login-form-label" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "login-form-input" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="login-form-group">
+          <%= f.check_box :remember_me, class: "login-form-checkbox" %>
+          <%= f.label :remember_me, 'Запам’ятати мене', class: "login-form-label" %>
+        </div>
+      <% end %>
+
+      <div class="login-actions">
+        <%= f.submit "Увійти", class: "login-btn login-btn-primary" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links", class: "login-auth-links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

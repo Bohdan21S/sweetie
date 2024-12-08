@@ -1,43 +1,42 @@
-<h1>Ось наші товари</h1>
+<h1 class="page-title">Ось наші товари</h1>
 
 <!-- Панель для вибору категорії -->
-<div class="category-panel" style="margin-bottom: 20px;">
-  <%= link_to 'Всі товари', products_path, class: 'btn btn-info' %>
+<div class="product-indexpage-category-panel">
+  <%= link_to 'Всі товари', products_path, class: "product-indexpage-btn-category #{'product-indexpage-active-category' unless params[:category]}" %>
   <% Category.all.each do |category| %>
-    <%= link_to category.name, products_path(category: category.id), class: 'btn btn-secondary' %>
+    <%= link_to category.name, products_path(category: category.id), class: "product-indexpage-btn-category #{'product-indexpage-active-category' if params[:category].to_i == category.id}" %>
   <% end %>
 </div>
 
 <!-- Поле для пошуку -->
-<div style="text-align: center; margin-top: 20px;">
+<div class="product-indexpage-search-bar">
   <%= form_with url: products_path, method: :get, local: true, id: 'search-form' do |f| %>
-    <%= f.label :search, "Пошук товарів" %>
-    <%= f.text_field :search, placeholder: 'Шукайте товар за назвою...', class: 'form-control' %>
-    <%= f.submit 'Шукати', class: 'btn btn-primary' %>
+    <%= f.text_field :search, placeholder: 'Шукайте товар за назвою...', class: 'product-indexpage-search-input' %>
+    <%= f.submit 'Шукати', class: 'product-indexpage-btn-search' %>
   <% end %>
 </div>
 
 <% if @products.any? %>
-  <ul>
+  <ul class="product-list">
     <% @products.each do |product| %>
-      <li>
+      <li class="product-card">
         <% if product.image.attached? %>
-          <%= image_tag product.image, style: "max-width: 150px;" %>
+          <%= image_tag product.image, class: 'product-image' %>
         <% end %>
-        <%= link_to product.name, product_path(product) %>
-        <p>Price: $<%= product.price %></p>
-        <p>Category: <%= product.category.name %></p>
-      </li>
+        <h3 class="product-name"><%= link_to product.name, product_path(product) %></h3>
+        <p class="product-price">Ціна: $<%= product.price %></p>
+        <p class="product-category">Категорія: <%= product.category.name %></p>
 
-      <%= form_with url: user_signed_in? ? cart_items_path : new_user_session_path, method: :post do |f| %>
-        <% if user_signed_in? %>
-          <%= hidden_field_tag :product_id, product.id %>
-          <%= hidden_field_tag :quantity, 1 %>
+        <%= form_with url: user_signed_in? ? cart_items_path : new_user_session_path, method: :post, local: true do |f| %>
+          <% if user_signed_in? %>
+            <%= hidden_field_tag :product_id, product.id %>
+            <%= hidden_field_tag :quantity, 1 %>
+          <% end %>
+          <%= f.submit 'Додати до корзини', class: 'btn btn-secondary' %>
         <% end %>
-        <%= f.submit 'Додати до корзини' %>
-      <% end %>
+      </li>
     <% end %>
   </ul>
 <% else %>
-  <p>Товари не знайдені.</p>
+  <p class="no-products">Товари не знайдені.</p>
 <% end %>

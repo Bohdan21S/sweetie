@@ -1,22 +1,24 @@
-<h1>Зворотній зв’язок</h1>
+<div class="feedbackpage-container">
+  <h1 class="feedbackpage-title">Зворотній зв’язок</h1>
 
-<%= form_with model: @feedback, local: true do |f| %>
-  <div>
-    <%= f.label :subject, 'Тема' %>
-    <%= f.text_field :subject %>
-  </div>
+  <%= form_with model: @feedback, local: true, class: "feedbackpage-form" do |f| %>
+    <div class="feedbackpage-form-group">
+      <%= f.label :subject, 'Тема:', class: "feedbackpage-label" %>
+      <%= f.text_field :subject, class: "feedbackpage-input" %>
+    </div>
 
-  <div>
-    <%= f.label :message, 'Повідомлення' %>
-    <%= f.text_area :message %>
-  </div>
+    <div class="feedbackpage-form-group">
+      <%= f.label :message, 'Повідомлення:', class: "feedbackpage-label" %>
+      <%= f.text_area :message, class: "feedbackpage-input feedbackpage-textarea" %>
+    </div>
 
-  <div>
-    <%= f.label :images, 'Додати фото (за бажанням)' %>
-    <%= f.file_field :images, multiple: true %>
-  </div>
+    <div class="feedbackpage-form-group">
+      <%= f.label :images, 'Додати фото (за бажанням):', class: "feedbackpage-label" %>
+      <%= f.file_field :images, multiple: true, class: "feedbackpage-input feedbackpage-file-input" %>
+    </div>
 
-  <div>
-    <%= f.submit 'Відправити' %>
-  </div>
-<% end %>
+    <div class="feedbackpage-form-group">
+      <%= f.submit 'Відправити', class: "feedbackpage-btn feedbackpage-submit-btn" %>
+    </div>
+  <% end %>
+</div>

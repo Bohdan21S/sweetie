@@ -1,12 +1,14 @@
-<h1>Додати нову категорію</h1>
+<div class="category-create-wrapper">
+  <h1 class="category-create-title">Додати нову категорію</h1>
 
-<%= form_with(model: @category, url: admin_categories_path) do |f| %>
-  <div>
-    <%= f.label :name, 'Назва категорії' %>
-    <%= f.text_field :name %>
-  </div>
+  <%= form_with(model: @category, url: admin_categories_path, class: "category-create-form") do |f| %>
+    <div class="category-create-form-group">
+      <%= f.label :name, 'Назва категорії', class: "category-create-label" %>
+      <%= f.text_field :name, class: "category-create-input" %>
+    </div>
 
-  <div>
-    <%= f.submit 'Додати категорію' %>
-  </div>
-<% end %>
+    <div class="category-create-actions">
+      <%= f.submit 'Додати категорію', class: "category-create-btn category-create-btn-primary" %>
+    </div>
+  <% end %>
+</div>

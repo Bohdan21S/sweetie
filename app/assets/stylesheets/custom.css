@@ -1110,3 +1110,202 @@
 
 
 
+/* Заголовок */
+.order-indexpage-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Сітка замовлень */
+.order-indexpage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Карточки */
+.order-indexpage-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.order-indexpage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Шапка карточки */
+.order-indexpage-card-header {
+    background-color: #f4f4f4;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-indexpage-order-id {
+    font-weight: bold;
+    color: #333;
+}
+
+.order-indexpage-order-date {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Тіло карточки */
+.order-indexpage-card-body {
+    padding: 15px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.order-indexpage-card-body p {
+    margin: 10px 0;
+}
+
+/* Дії */
+.order-indexpage-card-actions {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+    border-top: 1px solid #ddd;
+}
+
+/* Кнопки */
+.order-indexpage-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.order-indexpage-btn-info {
+    background-color: #17a2b8;
+}
+
+.order-indexpage-btn-primary {
+    background-color: #007bff;
+}
+
+.order-indexpage-btn-success {
+    background-color: #28a745;
+}
+
+.order-indexpage-btn-danger {
+    background-color: #dc3545;
+}
+
+.order-indexpage-btn:hover {
+    opacity: 0.9;
+}
+
+/* Текст для відсутності замовлень */
+.order-indexpage-no-orders {
+    font-size: 1.2rem;
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/* Заголовок */
+.order-detailpage-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Контейнер */
+.order-detailpage-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Секції */
+.order-detailpage-section {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+.order-detailpage-section-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* Таблиця */
+.order-detailpage-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.order-detailpage-table th,
+.order-detailpage-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.order-detailpage-table th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.order-detailpage-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.order-detailpage-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* Кнопка повернення */
+.order-detailpage-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.order-detailpage-btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.order-detailpage-btn-secondary:hover {
+    background-color: #5a6268;
+}
+

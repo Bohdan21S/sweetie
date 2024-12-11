@@ -21,10 +21,6 @@ Rails.application.routes.draw do
   devise_for :users
   root "products#index" # Вказуємо головну сторінку
 
-  # devise_for :users do
-  #   get "/users/sign_out" => "devise/sessions#destroy"
-  # end
-  #
   namespace :admin do
     get "orders/index"
     get "orders/update"
@@ -40,38 +36,23 @@ Rails.application.routes.draw do
   resources :cart_items, only: %i[create destroy update]
   resource :cart, only: %i[show]
 
-
   resources :products, only: %i[show] do
     resources :reviews, only: %i[create edit update]
   end
-
-  # resources :products, only: %i[index show] do
-  #   collection do
-  #     get :search
-  #   end
-  # end
-
 
   namespace :admin do
     resources :reviews, only: [:update]
   end
 
-
   resources :feedbacks, only: [:new, :create]
 
-
   resources :orders, only: [:new, :create, :show]
-
 
   get "/nova_poshta/branches", to: "nova_poshta#branches"
   get "/nova_poshta/cities", to: "nova_poshta#cities"
 
-
   namespace :admin do
     resources :orders, only: [:index, :update, :destroy, :show]
   end
-
-
-
 
 end

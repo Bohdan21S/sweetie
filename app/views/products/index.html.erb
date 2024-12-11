@@ -32,7 +32,7 @@
             <%= hidden_field_tag :product_id, product.id %>
             <%= hidden_field_tag :quantity, 1 %>
           <% end %>
-          <%= f.submit 'Додати до корзини', class: 'btn btn-secondary' %>
+          <%= f.submit 'Додати до корзини', class: 'product-indexpage-btn-add-to-cart' %>
         <% end %>
       </li>
     <% end %>
@@ -40,3 +40,5 @@
 <% else %>
   <p class="no-products">Товари не знайдені.</p>
 <% end %>
+
+

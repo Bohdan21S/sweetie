@@ -67,27 +67,19 @@
       <% if review.user == current_user %>
         <%= link_to 'Редагувати', edit_product_review_path(@product, review), class: 'btn btn-warning' %>
       <% end %>
-      <%# if review.admin_response.present? %>
-<!--        <p><strong>Відповідь адміністратора:</strong> <%#= review.admin_response %></p>-->
-      <%# end %>
-
-
       <% if review.admin_response.present? %>
         <p><strong>Відповідь адміністратора:</strong> <%= review.admin_response %></p>
       <% else %>
         <% if user_signed_in? && current_user.admin? %>
           <%= form_with url: admin_review_path(review), method: :patch, local: true do |f| %>
             <div>
-              <%= f.label :admin_response, 'Ваша відповідь' %>
-              <%= f.text_area :admin_response %>
+              <%= f.label :admin_response, 'Ваша відповідь', class: 'product-details-admin-response-label' %>
+              <%= f.text_area :admin_response, class: 'product-details-admin-response-textarea' %>
             </div>
-            <%= f.submit 'Відповісти' %>
+            <%= f.submit 'Відповісти', class: 'btn btn-secondary' %>
           <% end %>
         <% end %>
-
       <% end %>
-
-
     </div>
   <% end %>
 </div>
